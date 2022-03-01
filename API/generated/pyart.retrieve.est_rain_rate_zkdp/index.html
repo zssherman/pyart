@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pyart.retrieve.est_rain_rate_zkdp &mdash; Py-ART 1.11.7.dev+eef9c26 documentation</title>
+  <title>pyart.retrieve.est_rain_rate_zkdp &mdash; Py-ART 1.11.7.dev+d5db026 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
@@ -35,7 +35,7 @@
             <a href="../../../" class="icon icon-home"> Py-ART
           </a>
               <div class="version">
-                1.11.7.dev+eef9c26
+                1.11.7.dev+d5db026
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
@@ -179,7 +179,7 @@
 <h1>pyart.retrieve.est_rain_rate_zkdp<a class="headerlink" href="#pyart-retrieve-est-rain-rate-zkdp" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyart.retrieve.est_rain_rate_zkdp">
-<span class="sig-prename descclassname"><span class="pre">pyart.retrieve.</span></span><span class="sig-name descname"><span class="pre">est_rain_rate_zkdp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0376</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">betaz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.6112</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphakdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">betakdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refl_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kdp_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rr_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">master_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresh_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyart/retrieve/qpe/#est_rain_rate_zkdp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyart.retrieve.est_rain_rate_zkdp" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyart.retrieve.</span></span><span class="sig-name descname"><span class="pre">est_rain_rate_zkdp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0376</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">betaz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.6112</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphakdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">betakdp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refl_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kdp_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rr_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresh_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyart/retrieve/qpe/#est_rain_rate_zkdp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyart.retrieve.est_rain_rate_zkdp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Estimates rainfall rate from a blending of power law r-kdp and r-z
 relations.</p>
 <dl class="field-list simple">
@@ -193,16 +193,16 @@ to the radar frequency.</p></li>
 <li><p><strong>refl_field</strong> (<em>str, optional</em>) – Name of the reflectivity field to use.</p></li>
 <li><p><strong>kdp_field</strong> (<em>str, optional</em>) – Name of the specific differential phase field to use.</p></li>
 <li><p><strong>rr_field</strong> (<em>str, optional</em>) – Name of the rainfall rate field.</p></li>
-<li><p><strong>master_field</strong> (<em>str, optional</em>) – Name of the field that is going to act as master. Has to be
+<li><p><strong>main_field</strong> (<em>str, optional</em>) – Name of the field that is going to act as main. Has to be
 either refl_field or kdp_field. Default is refl_field.</p></li>
-<li><p><strong>thresh</strong> (<em>float, optional</em>) – Value of the threshold that determines when to use the slave
+<li><p><strong>thresh</strong> (<em>float, optional</em>) – Value of the threshold that determines when to use the secondary
 field.</p></li>
-<li><p><strong>thresh_max</strong> (<em>Bool, optional</em>) – If true the master field is used up to the thresh value maximum.
-Otherwise the master field is not used below thresh value.</p></li>
+<li><p><strong>thresh_max</strong> (<em>Bool, optional</em>) – If true the main field is used up to the thresh value maximum.
+Otherwise the main field is not used below thresh value.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>rain_master</strong> (<em>dict</em>) – Field dictionary containing the rainfall rate.</p>
+<dd class="field-even"><p><strong>rain_main</strong> (<em>dict</em>) – Field dictionary containing the rainfall rate.</p>
 </dd>
 </dl>
 </dd></dl>

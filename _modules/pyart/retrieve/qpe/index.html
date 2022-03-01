@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pyart.retrieve.qpe &mdash; Py-ART 1.11.7.dev+eef9c26 documentation</title>
+  <title>pyart.retrieve.qpe &mdash; Py-ART 1.11.7.dev+d5db026 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/plot_directive.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../../../../" class="icon icon-home"> Py-ART
           </a>
               <div class="version">
-                1.11.7.dev+eef9c26
+                1.11.7.dev+d5db026
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search/" method="get">
@@ -131,6 +131,15 @@
 <span class="sd">    rain : dict</span>
 <span class="sd">        Field dictionary containing the rainfall rate.</span>
 
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Doelling et al. Systematic variations of Z–R-relationships from drop size</span>
+<span class="sd">    distributions measured in northern Germany during seven years. 1998. Atmos.</span>
+<span class="sd">    Ocean. Technol, 21, 1545-1556.</span>
+
+<span class="sd">    Joss et al. Operational Use of Radar for Precipitation Measurements</span>
+<span class="sd">    in Switzerland. 1998. Vdf Hochschulverlag AG ETH Zurich: 134.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># parse the field parameters</span>
     <span class="k">if</span> <span class="n">refl_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -175,6 +184,11 @@
 <span class="sd">    rain : dict</span>
 <span class="sd">        Field dictionary containing the rainfall rate.</span>
 
+<span class="sd">    Reference</span>
+<span class="sd">    ---------</span>
+<span class="sd">    Fabry, Frédéric. Radar Meterology. 2015. Ch 9. pg 148-165.</span>
+<span class="sd">    https://doi.org/10.1017/CBO9781107707405</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># parse the field parameters</span>
     <span class="k">if</span> <span class="n">refl_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -214,6 +228,14 @@
 <span class="sd">    -------</span>
 <span class="sd">    rain : dict</span>
 <span class="sd">        Field dictionary containing the rainfall rate.</span>
+
+<span class="sd">    Reference</span>
+<span class="sd">    ---------</span>
+<span class="sd">    Figueras et al. Long-term monitoring of French polarimetric radar data</span>
+<span class="sd">    quality and evaluation of several polarimetric quantitative precipitation</span>
+<span class="sd">    estimators in ideal conditions for operational implementation at C-band.</span>
+<span class="sd">    Quarterly Journal of the Royal Meteorological Society. 2012.</span>
+<span class="sd">    https://doi.org/10.1002/qj.1934</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># select the coefficients as alpha function of frequency band</span>
@@ -310,7 +332,7 @@
 
 <div class="viewcode-block" id="est_rain_rate_zkdp"><a class="viewcode-back" href="../../../../API/generated/pyart.retrieve.est_rain_rate_zkdp/#pyart.retrieve.est_rain_rate_zkdp">[docs]</a><span class="k">def</span> <span class="nf">est_rain_rate_zkdp</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">alphaz</span><span class="o">=</span><span class="mf">0.0376</span><span class="p">,</span> <span class="n">betaz</span><span class="o">=</span><span class="mf">0.6112</span><span class="p">,</span> <span class="n">alphakdp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                        <span class="n">betakdp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kdp_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                       <span class="n">rr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">master_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                       <span class="n">rr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">main_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                        <span class="n">thresh_max</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Estimates rainfall rate from a blending of power law r-kdp and r-z</span>
@@ -332,19 +354,19 @@
 <span class="sd">        Name of the specific differential phase field to use.</span>
 <span class="sd">    rr_field : str, optional</span>
 <span class="sd">        Name of the rainfall rate field.</span>
-<span class="sd">    master_field : str, optional</span>
-<span class="sd">        Name of the field that is going to act as master. Has to be</span>
+<span class="sd">    main_field : str, optional</span>
+<span class="sd">        Name of the field that is going to act as main. Has to be</span>
 <span class="sd">        either refl_field or kdp_field. Default is refl_field.</span>
 <span class="sd">    thresh : float, optional</span>
-<span class="sd">        Value of the threshold that determines when to use the slave</span>
+<span class="sd">        Value of the threshold that determines when to use the secondary</span>
 <span class="sd">        field.</span>
 <span class="sd">    thresh_max : Bool, optional</span>
-<span class="sd">        If true the master field is used up to the thresh value maximum.</span>
-<span class="sd">        Otherwise the master field is not used below thresh value.</span>
+<span class="sd">        If true the main field is used up to the thresh value maximum.</span>
+<span class="sd">        Otherwise the main field is not used below thresh value.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    rain_master : dict</span>
+<span class="sd">    rain_main : dict</span>
 <span class="sd">        Field dictionary containing the rainfall rate.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -363,42 +385,42 @@
         <span class="n">radar</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alphakdp</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">betakdp</span><span class="p">,</span> <span class="n">kdp_field</span><span class="o">=</span><span class="n">kdp_field</span><span class="p">,</span>
         <span class="n">rr_field</span><span class="o">=</span><span class="n">rr_field</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">master_field</span> <span class="o">==</span> <span class="n">refl_field</span><span class="p">:</span>
-        <span class="n">slave_field</span> <span class="o">=</span> <span class="n">kdp_field</span>
-        <span class="n">rain_master</span> <span class="o">=</span> <span class="n">rain_z</span>
-        <span class="n">rain_slave</span> <span class="o">=</span> <span class="n">rain_kdp</span>
-    <span class="k">elif</span> <span class="n">master_field</span> <span class="o">==</span> <span class="n">kdp_field</span><span class="p">:</span>
-        <span class="n">slave_field</span> <span class="o">=</span> <span class="n">refl_field</span>
-        <span class="n">rain_master</span> <span class="o">=</span> <span class="n">rain_kdp</span>
-        <span class="n">rain_slave</span> <span class="o">=</span> <span class="n">rain_z</span>
-    <span class="k">elif</span> <span class="n">master_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">master_field</span> <span class="o">=</span> <span class="n">refl_field</span>
-        <span class="n">slave_field</span> <span class="o">=</span> <span class="n">kdp_field</span>
-        <span class="n">rain_master</span> <span class="o">=</span> <span class="n">rain_z</span>
-        <span class="n">rain_slave</span> <span class="o">=</span> <span class="n">rain_kdp</span>
+    <span class="k">if</span> <span class="n">main_field</span> <span class="o">==</span> <span class="n">refl_field</span><span class="p">:</span>
+        <span class="n">secondary_field</span> <span class="o">=</span> <span class="n">kdp_field</span>
+        <span class="n">rain_main</span> <span class="o">=</span> <span class="n">rain_z</span>
+        <span class="n">rain_secondary</span> <span class="o">=</span> <span class="n">rain_kdp</span>
+    <span class="k">elif</span> <span class="n">main_field</span> <span class="o">==</span> <span class="n">kdp_field</span><span class="p">:</span>
+        <span class="n">secondary_field</span> <span class="o">=</span> <span class="n">refl_field</span>
+        <span class="n">rain_main</span> <span class="o">=</span> <span class="n">rain_kdp</span>
+        <span class="n">rain_secondary</span> <span class="o">=</span> <span class="n">rain_z</span>
+    <span class="k">elif</span> <span class="n">main_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">main_field</span> <span class="o">=</span> <span class="n">refl_field</span>
+        <span class="n">secondary_field</span> <span class="o">=</span> <span class="n">kdp_field</span>
+        <span class="n">rain_main</span> <span class="o">=</span> <span class="n">rain_z</span>
+        <span class="n">rain_secondary</span> <span class="o">=</span> <span class="n">rain_kdp</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">master_field</span> <span class="o">=</span> <span class="n">refl_field</span>
-        <span class="n">slave_field</span> <span class="o">=</span> <span class="n">kdp_field</span>
-        <span class="n">rain_master</span> <span class="o">=</span> <span class="n">rain_z</span>
-        <span class="n">rain_slave</span> <span class="o">=</span> <span class="n">rain_kdp</span>
+        <span class="n">main_field</span> <span class="o">=</span> <span class="n">refl_field</span>
+        <span class="n">secondary_field</span> <span class="o">=</span> <span class="n">kdp_field</span>
+        <span class="n">rain_main</span> <span class="o">=</span> <span class="n">rain_z</span>
+        <span class="n">rain_secondary</span> <span class="o">=</span> <span class="n">rain_kdp</span>
         <span class="n">thresh</span> <span class="o">=</span> <span class="mf">40.</span>
         <span class="n">thresh_max</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Unknown master field. Using &#39;</span> <span class="o">+</span> <span class="n">refl_field</span>
+        <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Unknown main field. Using &#39;</span> <span class="o">+</span> <span class="n">refl_field</span>
              <span class="o">+</span> <span class="s1">&#39; with threshold &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">thresh</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="n">thresh_max</span><span class="p">:</span>
-        <span class="n">is_slave</span> <span class="o">=</span> <span class="n">rain_master</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thresh</span>
+        <span class="n">is_secondary</span> <span class="o">=</span> <span class="n">rain_main</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thresh</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">is_slave</span> <span class="o">=</span> <span class="n">rain_master</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">thresh</span>
-    <span class="n">rain_master</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_slave</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">rain_slave</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_slave</span><span class="p">])</span>
+        <span class="n">is_secondary</span> <span class="o">=</span> <span class="n">rain_main</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">thresh</span>
+    <span class="n">rain_main</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_secondary</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">rain_secondary</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_secondary</span><span class="p">])</span>
 
-    <span class="k">return</span> <span class="n">rain_master</span></div>
+    <span class="k">return</span> <span class="n">rain_main</span></div>
 
 
 <div class="viewcode-block" id="est_rain_rate_za"><a class="viewcode-back" href="../../../../API/generated/pyart.retrieve.est_rain_rate_za/#pyart.retrieve.est_rain_rate_za">[docs]</a><span class="k">def</span> <span class="nf">est_rain_rate_za</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">alphaz</span><span class="o">=</span><span class="mf">0.0376</span><span class="p">,</span> <span class="n">betaz</span><span class="o">=</span><span class="mf">0.6112</span><span class="p">,</span> <span class="n">alphaa</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">betaa</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">a_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                     <span class="n">master_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">thresh_max</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                     <span class="n">main_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">thresh_max</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Estimates rainfall rate from a blending of power law r-alpha and r-z</span>
 <span class="sd">    relations.</span>
@@ -418,19 +440,19 @@
 <span class="sd">        Name of the specific attenuation field to use.</span>
 <span class="sd">    rr_field : str, optional</span>
 <span class="sd">        Name of the rainfall rate field.</span>
-<span class="sd">    master_field : str, optional</span>
-<span class="sd">        Name of the field that is going to act as master. Has to be</span>
+<span class="sd">    main_field : str, optional</span>
+<span class="sd">        Name of the field that is going to act as main. Has to be</span>
 <span class="sd">        either refl_field or kdp_field. Default is refl_field.</span>
 <span class="sd">    thresh : float, optional</span>
-<span class="sd">        Value of the threshold that determines when to use the slave</span>
+<span class="sd">        Value of the threshold that determines when to use the secondary</span>
 <span class="sd">        field.</span>
 <span class="sd">    thresh_max : Bool, optional</span>
-<span class="sd">        If true the master field is used up to the thresh value maximum.</span>
-<span class="sd">        Otherwise the master field is not used below thresh value.</span>
+<span class="sd">        If true the main field is used up to the thresh value maximum.</span>
+<span class="sd">        Otherwise the main field is not used below thresh value.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    rain_master : dict</span>
+<span class="sd">    rain_main : dict</span>
 <span class="sd">        Field dictionary containing the rainfall rate.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -448,44 +470,44 @@
     <span class="n">rain_a</span> <span class="o">=</span> <span class="n">est_rain_rate_a</span><span class="p">(</span>
         <span class="n">radar</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alphaa</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">betaa</span><span class="p">,</span> <span class="n">a_field</span><span class="o">=</span><span class="n">a_field</span><span class="p">,</span> <span class="n">rr_field</span><span class="o">=</span><span class="n">rr_field</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">master_field</span> <span class="o">==</span> <span class="n">refl_field</span><span class="p">:</span>
-        <span class="n">slave_field</span> <span class="o">=</span> <span class="n">a_field</span>
-        <span class="n">rain_master</span> <span class="o">=</span> <span class="n">rain_z</span>
-        <span class="n">rain_slave</span> <span class="o">=</span> <span class="n">rain_a</span>
-    <span class="k">elif</span> <span class="n">master_field</span> <span class="o">==</span> <span class="n">a_field</span><span class="p">:</span>
-        <span class="n">slave_field</span> <span class="o">=</span> <span class="n">refl_field</span>
-        <span class="n">rain_master</span> <span class="o">=</span> <span class="n">rain_a</span>
-        <span class="n">rain_slave</span> <span class="o">=</span> <span class="n">rain_z</span>
-    <span class="k">elif</span> <span class="n">master_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">master_field</span> <span class="o">=</span> <span class="n">a_field</span>
-        <span class="n">slave_field</span> <span class="o">=</span> <span class="n">refl_field</span>
-        <span class="n">rain_master</span> <span class="o">=</span> <span class="n">rain_a</span>
-        <span class="n">rain_slave</span> <span class="o">=</span> <span class="n">rain_z</span>
+    <span class="k">if</span> <span class="n">main_field</span> <span class="o">==</span> <span class="n">refl_field</span><span class="p">:</span>
+        <span class="n">secondary_field</span> <span class="o">=</span> <span class="n">a_field</span>
+        <span class="n">rain_main</span> <span class="o">=</span> <span class="n">rain_z</span>
+        <span class="n">rain_secondary</span> <span class="o">=</span> <span class="n">rain_a</span>
+    <span class="k">elif</span> <span class="n">main_field</span> <span class="o">==</span> <span class="n">a_field</span><span class="p">:</span>
+        <span class="n">secondary_field</span> <span class="o">=</span> <span class="n">refl_field</span>
+        <span class="n">rain_main</span> <span class="o">=</span> <span class="n">rain_a</span>
+        <span class="n">rain_secondary</span> <span class="o">=</span> <span class="n">rain_z</span>
+    <span class="k">elif</span> <span class="n">main_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">main_field</span> <span class="o">=</span> <span class="n">a_field</span>
+        <span class="n">secondary_field</span> <span class="o">=</span> <span class="n">refl_field</span>
+        <span class="n">rain_main</span> <span class="o">=</span> <span class="n">rain_a</span>
+        <span class="n">rain_secondary</span> <span class="o">=</span> <span class="n">rain_z</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">master_field</span> <span class="o">=</span> <span class="n">a_field</span>
-        <span class="n">slave_field</span> <span class="o">=</span> <span class="n">refl_field</span>
-        <span class="n">rain_master</span> <span class="o">=</span> <span class="n">rain_a</span>
-        <span class="n">rain_slave</span> <span class="o">=</span> <span class="n">rain_z</span>
+        <span class="n">main_field</span> <span class="o">=</span> <span class="n">a_field</span>
+        <span class="n">secondary_field</span> <span class="o">=</span> <span class="n">refl_field</span>
+        <span class="n">rain_main</span> <span class="o">=</span> <span class="n">rain_a</span>
+        <span class="n">rain_secondary</span> <span class="o">=</span> <span class="n">rain_z</span>
         <span class="n">thresh</span> <span class="o">=</span> <span class="mf">0.04</span>
         <span class="n">thresh_max</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Unknown master field. Using &#39;</span> <span class="o">+</span> <span class="n">a_field</span> <span class="o">+</span> <span class="s1">&#39; with threshold &#39;</span>
+        <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Unknown main field. Using &#39;</span> <span class="o">+</span> <span class="n">a_field</span> <span class="o">+</span> <span class="s1">&#39; with threshold &#39;</span>
              <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">thresh</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="n">thresh_max</span><span class="p">:</span>
-        <span class="n">is_slave</span> <span class="o">=</span> <span class="n">rain_master</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thresh</span>
+        <span class="n">is_secondary</span> <span class="o">=</span> <span class="n">rain_main</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thresh</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">is_slave</span> <span class="o">=</span> <span class="n">rain_master</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">thresh</span>
+        <span class="n">is_secondary</span> <span class="o">=</span> <span class="n">rain_main</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">thresh</span>
 
-    <span class="n">rain_master</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_slave</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">rain_slave</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_slave</span><span class="p">])</span>
+    <span class="n">rain_main</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_secondary</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">rain_secondary</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_secondary</span><span class="p">])</span>
 
-    <span class="k">return</span> <span class="n">rain_master</span></div>
+    <span class="k">return</span> <span class="n">rain_main</span></div>
 
 
 <div class="viewcode-block" id="est_rain_rate_hydro"><a class="viewcode-back" href="../../../../API/generated/pyart.retrieve.est_rain_rate_hydro/#pyart.retrieve.est_rain_rate_hydro">[docs]</a><span class="k">def</span> <span class="nf">est_rain_rate_hydro</span><span class="p">(</span><span class="n">radar</span><span class="p">,</span> <span class="n">alphazr</span><span class="o">=</span><span class="mf">0.0376</span><span class="p">,</span> <span class="n">betazr</span><span class="o">=</span><span class="mf">0.6112</span><span class="p">,</span> <span class="n">alphazs</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
                         <span class="n">betazs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alphaa</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">betaa</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mp_factor</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
                         <span class="n">refl_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">a_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hydro_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                        <span class="n">rr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">master_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">rr_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">main_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">thresh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                         <span class="n">thresh_max</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Estimates rainfall rate using different relations between R and the</span>
@@ -513,15 +535,15 @@
 <span class="sd">        Name of the hydrometeor classification field to use.</span>
 <span class="sd">    rr_field : str, optional</span>
 <span class="sd">        Name of the rainfall rate field.</span>
-<span class="sd">    master_field : str, optional</span>
-<span class="sd">        Name of the field that is going to act as master. Has to be</span>
+<span class="sd">    main_field : str, optional</span>
+<span class="sd">        Name of the field that is going to act as main. Has to be</span>
 <span class="sd">        either refl_field or kdp_field. Default is refl_field.</span>
 <span class="sd">    thresh : float, optional</span>
-<span class="sd">        Value of the threshold that determines when to use the slave</span>
+<span class="sd">        Value of the threshold that determines when to use the secondary</span>
 <span class="sd">        field.</span>
 <span class="sd">    thresh_max : Bool, optional</span>
-<span class="sd">        If true the master field is used up to the thresh value maximum.</span>
-<span class="sd">        Otherwise the master field is not used below thresh value.</span>
+<span class="sd">        If true the main field is used up to the thresh value maximum.</span>
+<span class="sd">        Otherwise the main field is not used below thresh value.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -580,38 +602,38 @@
     <span class="n">rr_data</span><span class="p">[</span><span class="n">is_ih</span><span class="p">]</span> <span class="o">=</span> <span class="n">snow_z</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_ih</span><span class="p">]</span>
 
     <span class="c1"># rain</span>
-    <span class="k">if</span> <span class="n">master_field</span> <span class="o">==</span> <span class="n">refl_field</span><span class="p">:</span>
-        <span class="n">slave_field</span> <span class="o">=</span> <span class="n">a_field</span>
-        <span class="n">rain_master</span> <span class="o">=</span> <span class="n">rain_z</span>
-        <span class="n">rain_slave</span> <span class="o">=</span> <span class="n">rain_a</span>
-    <span class="k">elif</span> <span class="n">master_field</span> <span class="o">==</span> <span class="n">a_field</span><span class="p">:</span>
-        <span class="n">slave_field</span> <span class="o">=</span> <span class="n">refl_field</span>
-        <span class="n">rain_master</span> <span class="o">=</span> <span class="n">rain_a</span>
-        <span class="n">rain_slave</span> <span class="o">=</span> <span class="n">rain_z</span>
-    <span class="k">elif</span> <span class="n">master_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">master_field</span> <span class="o">=</span> <span class="n">a_field</span>
-        <span class="n">slave_field</span> <span class="o">=</span> <span class="n">refl_field</span>
-        <span class="n">rain_master</span> <span class="o">=</span> <span class="n">rain_a</span>
-        <span class="n">rain_slave</span> <span class="o">=</span> <span class="n">rain_z</span>
+    <span class="k">if</span> <span class="n">main_field</span> <span class="o">==</span> <span class="n">refl_field</span><span class="p">:</span>
+        <span class="n">secondary_field</span> <span class="o">=</span> <span class="n">a_field</span>
+        <span class="n">rain_main</span> <span class="o">=</span> <span class="n">rain_z</span>
+        <span class="n">rain_secondary</span> <span class="o">=</span> <span class="n">rain_a</span>
+    <span class="k">elif</span> <span class="n">main_field</span> <span class="o">==</span> <span class="n">a_field</span><span class="p">:</span>
+        <span class="n">secondary_field</span> <span class="o">=</span> <span class="n">refl_field</span>
+        <span class="n">rain_main</span> <span class="o">=</span> <span class="n">rain_a</span>
+        <span class="n">rain_secondary</span> <span class="o">=</span> <span class="n">rain_z</span>
+    <span class="k">elif</span> <span class="n">main_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">main_field</span> <span class="o">=</span> <span class="n">a_field</span>
+        <span class="n">secondary_field</span> <span class="o">=</span> <span class="n">refl_field</span>
+        <span class="n">rain_main</span> <span class="o">=</span> <span class="n">rain_a</span>
+        <span class="n">rain_secondary</span> <span class="o">=</span> <span class="n">rain_z</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">master_field</span> <span class="o">=</span> <span class="n">a_field</span>
-        <span class="n">slave_field</span> <span class="o">=</span> <span class="n">refl_field</span>
-        <span class="n">rain_master</span> <span class="o">=</span> <span class="n">rain_a</span>
-        <span class="n">rain_slave</span> <span class="o">=</span> <span class="n">rain_z</span>
+        <span class="n">main_field</span> <span class="o">=</span> <span class="n">a_field</span>
+        <span class="n">secondary_field</span> <span class="o">=</span> <span class="n">refl_field</span>
+        <span class="n">rain_main</span> <span class="o">=</span> <span class="n">rain_a</span>
+        <span class="n">rain_secondary</span> <span class="o">=</span> <span class="n">rain_z</span>
         <span class="n">thresh</span> <span class="o">=</span> <span class="mf">0.04</span>
         <span class="n">thresh_max</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Unknown master field. Using &#39;</span> <span class="o">+</span> <span class="n">a_field</span> <span class="o">+</span> <span class="s1">&#39; with threshold &#39;</span> <span class="o">+</span>
+        <span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Unknown main field. Using &#39;</span> <span class="o">+</span> <span class="n">a_field</span> <span class="o">+</span> <span class="s1">&#39; with threshold &#39;</span> <span class="o">+</span>
              <span class="nb">str</span><span class="p">(</span><span class="n">thresh</span><span class="p">))</span>
 
     <span class="k">if</span> <span class="n">thresh_max</span><span class="p">:</span>
-        <span class="n">is_slave</span> <span class="o">=</span> <span class="n">rain_master</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thresh</span>
+        <span class="n">is_secondary</span> <span class="o">=</span> <span class="n">rain_main</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thresh</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">is_slave</span> <span class="o">=</span> <span class="n">rain_master</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">thresh</span>
+        <span class="n">is_secondary</span> <span class="o">=</span> <span class="n">rain_main</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">thresh</span>
 
-    <span class="n">rain_master</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_slave</span><span class="p">]</span> <span class="o">=</span> <span class="n">rain_slave</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_slave</span><span class="p">]</span>
+    <span class="n">rain_main</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_secondary</span><span class="p">]</span> <span class="o">=</span> <span class="n">rain_secondary</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_secondary</span><span class="p">]</span>
 
-    <span class="n">rr_data</span><span class="p">[</span><span class="n">is_lr</span><span class="p">]</span> <span class="o">=</span> <span class="n">rain_master</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_lr</span><span class="p">]</span>
-    <span class="n">rr_data</span><span class="p">[</span><span class="n">is_rn</span><span class="p">]</span> <span class="o">=</span> <span class="n">rain_master</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_rn</span><span class="p">]</span>
+    <span class="n">rr_data</span><span class="p">[</span><span class="n">is_lr</span><span class="p">]</span> <span class="o">=</span> <span class="n">rain_main</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_lr</span><span class="p">]</span>
+    <span class="n">rr_data</span><span class="p">[</span><span class="n">is_rn</span><span class="p">]</span> <span class="o">=</span> <span class="n">rain_main</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_rn</span><span class="p">]</span>
 
     <span class="c1"># mixed phase</span>
     <span class="n">rr_data</span><span class="p">[</span><span class="n">is_ws</span><span class="p">]</span> <span class="o">=</span> <span class="n">mp_factor</span><span class="o">*</span><span class="n">rain_z</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">is_ws</span><span class="p">]</span>
