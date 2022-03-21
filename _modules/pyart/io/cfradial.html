@@ -62,15 +62,13 @@
 
     <!-- Google Analytics -->
     
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-304897822"></script>
 <script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-221367849-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-304897822');
+                </script>
  
 <link
   rel="alternate"
@@ -352,7 +350,11 @@
 
     <span class="c1"># 4.3 Global variable -&gt; move to metadata dictionary</span>
     <span class="k">if</span> <span class="s1">&#39;volume_number&#39;</span> <span class="ow">in</span> <span class="n">ncvars</span><span class="p">:</span>
-        <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;volume_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ncvars</span><span class="p">[</span><span class="s1">&#39;volume_number&#39;</span><span class="p">][:])</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">isMaskedArray</span><span class="p">(</span><span class="n">ncvars</span><span class="p">[</span><span class="s1">&#39;volume_number&#39;</span><span class="p">][:]):</span>
+            <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;volume_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="n">ncvars</span><span class="p">[</span><span class="s1">&#39;volume_number&#39;</span><span class="p">][:]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;volume_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ncvars</span><span class="p">[</span><span class="s1">&#39;volume_number&#39;</span><span class="p">][:])</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;volume_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
