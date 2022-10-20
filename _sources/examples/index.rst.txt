@@ -50,18 +50,18 @@ Performing radar moment corrections in antenna (radial) coordinates.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="In this example doppler velocities are dealiased using the Univ. of Washington FourDD algorithm...">
+    <div class="sphx-glr-thumbcontainer" tooltip="In this example doppler velocities are dealiased using the ial condition of the dealiasing, usi...">
 
 .. only:: html
 
   .. image:: /examples/correct/images/thumb/sphx_glr_plot_dealias_thumb.png
-    :alt: Dealias doppler velocities using the FourDD algorithm
+    :alt: Dealias doppler velocities using the Region Based Algorithm
 
   :ref:`sphx_glr_examples_correct_plot_dealias.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Dealias doppler velocities using the FourDD algorithm</div>
+      <div class="sphx-glr-thumbnail-title">Dealias doppler velocities using the Region Based Algorithm</div>
     </div>
 
 
@@ -401,6 +401,23 @@ Plotting real world radar data with Py-ART.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Create an RHI plot with reflectivity contour lines from an MDV file</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This is an example of how to plot a cross section of your radar grid using the GridMapDisplay">
+
+.. only:: html
+
+  .. image:: /examples/plotting/images/thumb/sphx_glr_plot_cross_section_thumb.png
+    :alt: Plot a Cross Section from a Grid
+
+  :ref:`sphx_glr_examples_plotting_plot_cross_section.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Plot a Cross Section from a Grid</div>
     </div>
 
 
