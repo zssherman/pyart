@@ -5,10 +5,10 @@
 
 Computation times
 =================
-**00:07.149** total execution time for **examples_retrieve** files:
+**00:07.467** total execution time for **examples_retrieve** files:
 
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_retrieve_plot_composite_reflectivity.py` (``plot_composite_reflectivity.py``) | 00:04.176 | 0.0 MB |
+| :ref:`sphx_glr_examples_retrieve_plot_composite_reflectivity.py` (``plot_composite_reflectivity.py``) | 00:04.414 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_retrieve_plot_column_subset.py` (``plot_column_subset.py``)                   | 00:02.972 | 0.0 MB |
+| :ref:`sphx_glr_examples_retrieve_plot_column_subset.py` (``plot_column_subset.py``)                   | 00:03.054 | 0.0 MB |
 +-------------------------------------------------------------------------------------------------------+-----------+--------+
