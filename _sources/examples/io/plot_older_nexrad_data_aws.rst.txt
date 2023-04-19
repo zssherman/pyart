@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_examples_io_plot_older_nexrad_data_aws.py>`
+        :ref:`Go to the end <sphx_glr_download_examples_io_plot_older_nexrad_data_aws.py>`
         to download the full example code
 
 .. rst-class:: sphx-glr-example-title
@@ -168,13 +168,6 @@ pull the coordinate information from a dictionary found within Py-ART.
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /home/runner/work/pyart/pyart/pyart/io/nexrad_archive.py:231: UserWarning: Gate spacing is not constant, interpolating data in scans [0, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] for moment REF.
-      warnings.warn(
-
 
 
 
@@ -242,8 +235,6 @@ Everything now looks correct as this is in Handford CA!
       warnings.warn(f'Downloading: {url}', DownloadWarning)
     /home/runner/micromamba-root/envs/pyart-docs/lib/python3.11/site-packages/cartopy/io/__init__.py:241: DownloadWarning: Downloading: https://naturalearth.s3.amazonaws.com/10m_cultural/ne_10m_admin_1_states_provinces_lines.zip
       warnings.warn(f'Downloading: {url}', DownloadWarning)
-    /home/runner/micromamba-root/envs/pyart-docs/lib/python3.11/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
-      return lib.intersection(a, b, **kwargs)
 
 
 
@@ -251,7 +242,7 @@ Everything now looks correct as this is in Handford CA!
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  14.456 seconds)
+   **Total running time of the script:** ( 0 minutes  11.488 seconds)
 
 
 .. _sphx_glr_download_examples_io_plot_older_nexrad_data_aws.py:
@@ -259,6 +250,8 @@ Everything now looks correct as this is in Handford CA!
 .. only:: html
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
+
+
 
 
     .. container:: sphx-glr-download sphx-glr-download-python
