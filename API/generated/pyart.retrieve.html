@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>pyart.retrieve &#8212; Py-ART 1.15.1.post28 documentation</title>
+    <title>pyart.retrieve &#8212; Py-ART 1.15.1.post30 documentation</title>
   
   
   
@@ -67,7 +67,7 @@
     <script src="../../_static/doc_shared.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="pyart.retrieve.calculate_snr_from_reflectivity" href="pyart.retrieve.calculate_snr_from_reflectivity.html" />
+    <link rel="next" title="pyart.retrieve.ZtoR" href="pyart.retrieve.ZtoR.html" />
     <link rel="prev" title="pyart.exceptions" href="pyart.exceptions.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -152,7 +152,7 @@
   
   
   
-    <p class="title logo__title">Py-ART 1.15.1.post28 documentation</p>
+    <p class="title logo__title">Py-ART 1.15.1.post30 documentation</p>
   
 </a></div>
     
@@ -659,6 +659,7 @@ document.write(`
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pyart.exceptions.html">pyart.exceptions</a></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">pyart.retrieve</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.ZtoR.html">pyart.retrieve.ZtoR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.calculate_snr_from_reflectivity.html">pyart.retrieve.calculate_snr_from_reflectivity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.calculate_velocity_texture.html">pyart.retrieve.calculate_velocity_texture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.composite_reflectivity.html">pyart.retrieve.composite_reflectivity</a></li>
@@ -675,6 +676,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.est_rain_rate_za.html">pyart.retrieve.est_rain_rate_za</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.est_rain_rate_zkdp.html">pyart.retrieve.est_rain_rate_zkdp</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.est_rain_rate_zpoly.html">pyart.retrieve.est_rain_rate_zpoly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.feature_detection.html">pyart.retrieve.feature_detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.fetch_radar_time_profile.html">pyart.retrieve.fetch_radar_time_profile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.get_freq_band.html">pyart.retrieve.get_freq_band</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.grid_displacement_pc.html">pyart.retrieve.grid_displacement_pc</a></li>
@@ -1159,53 +1161,59 @@ document.write(`
 <p class="rubric">Functions</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.calculate_snr_from_reflectivity.html#pyart.retrieve.calculate_snr_from_reflectivity" title="pyart.retrieve.calculate_snr_from_reflectivity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_snr_from_reflectivity</span></code></a>(radar[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.ZtoR.html#pyart.retrieve.ZtoR" title="pyart.retrieve.ZtoR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ZtoR</span></code></a>(radar[, ref_field, a, b, save_name])</p></td>
+<td><p>Convert reflectivity (dBZ) to precipitation rate (mm/hr)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.calculate_snr_from_reflectivity.html#pyart.retrieve.calculate_snr_from_reflectivity" title="pyart.retrieve.calculate_snr_from_reflectivity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_snr_from_reflectivity</span></code></a>(radar[, ...])</p></td>
 <td><p>Calculate the signal to noise ratio, in dB, from the reflectivity field.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.calculate_velocity_texture.html#pyart.retrieve.calculate_velocity_texture" title="pyart.retrieve.calculate_velocity_texture"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_velocity_texture</span></code></a>(radar[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.calculate_velocity_texture.html#pyart.retrieve.calculate_velocity_texture" title="pyart.retrieve.calculate_velocity_texture"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_velocity_texture</span></code></a>(radar[, ...])</p></td>
 <td><p>Derive the texture of the velocity field.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.composite_reflectivity.html#pyart.retrieve.composite_reflectivity" title="pyart.retrieve.composite_reflectivity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">composite_reflectivity</span></code></a>(radar[, field, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.composite_reflectivity.html#pyart.retrieve.composite_reflectivity" title="pyart.retrieve.composite_reflectivity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">composite_reflectivity</span></code></a>(radar[, field, ...])</p></td>
 <td><p>Composite Reflectivity</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.compute_cdr.html#pyart.retrieve.compute_cdr" title="pyart.retrieve.compute_cdr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_cdr</span></code></a>(radar[, rhohv_field, zdr_field, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.compute_cdr.html#pyart.retrieve.compute_cdr" title="pyart.retrieve.compute_cdr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_cdr</span></code></a>(radar[, rhohv_field, zdr_field, ...])</p></td>
 <td><p>Computes the Circular Depolarization Ratio.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.compute_l.html#pyart.retrieve.compute_l" title="pyart.retrieve.compute_l"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_l</span></code></a>(radar[, rhohv_field, l_field])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.compute_l.html#pyart.retrieve.compute_l" title="pyart.retrieve.compute_l"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_l</span></code></a>(radar[, rhohv_field, l_field])</p></td>
 <td><p>Computes Rhohv in logarithmic scale according to L=-log10(1-RhoHV).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.compute_noisedBZ.html#pyart.retrieve.compute_noisedBZ" title="pyart.retrieve.compute_noisedBZ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_noisedBZ</span></code></a>(nrays, noisedBZ_val, ...[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.compute_noisedBZ.html#pyart.retrieve.compute_noisedBZ" title="pyart.retrieve.compute_noisedBZ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_noisedBZ</span></code></a>(nrays, noisedBZ_val, ...[, ...])</p></td>
 <td><p>Computes noise in dBZ from reference noise value.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.compute_snr.html#pyart.retrieve.compute_snr" title="pyart.retrieve.compute_snr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_snr</span></code></a>(radar[, refl_field, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.compute_snr.html#pyart.retrieve.compute_snr" title="pyart.retrieve.compute_snr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_snr</span></code></a>(radar[, refl_field, ...])</p></td>
 <td><p>Computes SNR from a reflectivity field and the noise in dBZ.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.conv_strat_yuter.html#pyart.retrieve.conv_strat_yuter" title="pyart.retrieve.conv_strat_yuter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv_strat_yuter</span></code></a>(grid[, dx, dy, level_m, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.conv_strat_yuter.html#pyart.retrieve.conv_strat_yuter" title="pyart.retrieve.conv_strat_yuter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv_strat_yuter</span></code></a>(grid[, dx, dy, level_m, ...])</p></td>
 <td><p>Partition reflectivity into convective-stratiform using the Yuter et al. (2005) and Yuter and Houze (1997) algorithm.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.dealias_spectra.html#pyart.retrieve.dealias_spectra" title="pyart.retrieve.dealias_spectra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dealias_spectra</span></code></a>(the_spectra, vel_bins, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.dealias_spectra.html#pyart.retrieve.dealias_spectra" title="pyart.retrieve.dealias_spectra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dealias_spectra</span></code></a>(the_spectra, vel_bins, ...)</p></td>
 <td><p>Dealias a spectra.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.est_rain_rate_a.html#pyart.retrieve.est_rain_rate_a" title="pyart.retrieve.est_rain_rate_a"><code class="xref py py-obj docutils literal notranslate"><span class="pre">est_rain_rate_a</span></code></a>(radar[, alpha, beta, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.est_rain_rate_a.html#pyart.retrieve.est_rain_rate_a" title="pyart.retrieve.est_rain_rate_a"><code class="xref py py-obj docutils literal notranslate"><span class="pre">est_rain_rate_a</span></code></a>(radar[, alpha, beta, ...])</p></td>
 <td><p>Estimates rainfall rate from specific attenuation using alpha power law.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.est_rain_rate_hydro.html#pyart.retrieve.est_rain_rate_hydro" title="pyart.retrieve.est_rain_rate_hydro"><code class="xref py py-obj docutils literal notranslate"><span class="pre">est_rain_rate_hydro</span></code></a>(radar[, alphazr, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.est_rain_rate_hydro.html#pyart.retrieve.est_rain_rate_hydro" title="pyart.retrieve.est_rain_rate_hydro"><code class="xref py py-obj docutils literal notranslate"><span class="pre">est_rain_rate_hydro</span></code></a>(radar[, alphazr, ...])</p></td>
 <td><p>Estimates rainfall rate using different relations between R and the polarimetric variables depending on the hydrometeor type.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.est_rain_rate_kdp.html#pyart.retrieve.est_rain_rate_kdp" title="pyart.retrieve.est_rain_rate_kdp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">est_rain_rate_kdp</span></code></a>(radar[, alpha, beta, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.est_rain_rate_kdp.html#pyart.retrieve.est_rain_rate_kdp" title="pyart.retrieve.est_rain_rate_kdp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">est_rain_rate_kdp</span></code></a>(radar[, alpha, beta, ...])</p></td>
 <td><p>Estimates rainfall rate from kdp using alpha power law.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.est_rain_rate_z.html#pyart.retrieve.est_rain_rate_z" title="pyart.retrieve.est_rain_rate_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">est_rain_rate_z</span></code></a>(radar[, alpha, beta, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.est_rain_rate_z.html#pyart.retrieve.est_rain_rate_z" title="pyart.retrieve.est_rain_rate_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">est_rain_rate_z</span></code></a>(radar[, alpha, beta, ...])</p></td>
 <td><p>Estimates rainfall rate from reflectivity using a power law.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.est_rain_rate_za.html#pyart.retrieve.est_rain_rate_za" title="pyart.retrieve.est_rain_rate_za"><code class="xref py py-obj docutils literal notranslate"><span class="pre">est_rain_rate_za</span></code></a>(radar[, alphaz, betaz, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.est_rain_rate_za.html#pyart.retrieve.est_rain_rate_za" title="pyart.retrieve.est_rain_rate_za"><code class="xref py py-obj docutils literal notranslate"><span class="pre">est_rain_rate_za</span></code></a>(radar[, alphaz, betaz, ...])</p></td>
 <td><p>Estimates rainfall rate from a blending of power law r-alpha and r-z relations.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.est_rain_rate_zkdp.html#pyart.retrieve.est_rain_rate_zkdp" title="pyart.retrieve.est_rain_rate_zkdp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">est_rain_rate_zkdp</span></code></a>(radar[, alphaz, betaz, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.est_rain_rate_zkdp.html#pyart.retrieve.est_rain_rate_zkdp" title="pyart.retrieve.est_rain_rate_zkdp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">est_rain_rate_zkdp</span></code></a>(radar[, alphaz, betaz, ...])</p></td>
 <td><p>Estimates rainfall rate from a blending of power law r-kdp and r-z relations.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.est_rain_rate_zpoly.html#pyart.retrieve.est_rain_rate_zpoly" title="pyart.retrieve.est_rain_rate_zpoly"><code class="xref py py-obj docutils literal notranslate"><span class="pre">est_rain_rate_zpoly</span></code></a>(radar[, refl_field, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.est_rain_rate_zpoly.html#pyart.retrieve.est_rain_rate_zpoly" title="pyart.retrieve.est_rain_rate_zpoly"><code class="xref py py-obj docutils literal notranslate"><span class="pre">est_rain_rate_zpoly</span></code></a>(radar[, refl_field, ...])</p></td>
 <td><p>Estimates rainfall rate from reflectivity using a polynomial Z-R relation developed at McGill University.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyart.retrieve.feature_detection.html#pyart.retrieve.feature_detection" title="pyart.retrieve.feature_detection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feature_detection</span></code></a>(grid[, dx, dy, level_m, ...])</p></td>
+<td><p>This function can be used to detect features in a field (e.g.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyart.retrieve.fetch_radar_time_profile.html#pyart.retrieve.fetch_radar_time_profile" title="pyart.retrieve.fetch_radar_time_profile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_radar_time_profile</span></code></a>(sonde_dset, radar)</p></td>
 <td><p>Extract the correct profile from a interpolated sonde.</p></td>
@@ -1280,11 +1288,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="pyart.retrieve.calculate_snr_from_reflectivity.html"
+       href="pyart.retrieve.ZtoR.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">pyart.retrieve.calculate_snr_from_reflectivity</p>
+        <p class="prev-next-title">pyart.retrieve.ZtoR</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
