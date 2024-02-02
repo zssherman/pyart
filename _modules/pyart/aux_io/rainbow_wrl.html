@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" data-theme="light">
+<html lang="en" data-content_root="" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyart.aux_io.rainbow_wrl &#8212; Py-ART 1.15.1.post34 documentation</title>
+    <title>pyart.aux_io.rainbow_wrl &#8212; Py-ART 1.15.1.post42 documentation</title>
   
   
   
@@ -17,15 +17,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
@@ -39,24 +39,18 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/pyart-theme.css?v=40b48845" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../../_static/documentation_options.js?v=a30171b7"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=0a3def1a"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../../_static/design-tabs.js?v=36754332"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-JJEG3CV376"></script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-JJEG3CV376');
-            </script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
@@ -87,10 +81,9 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -131,7 +124,7 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
 <div class="bd-header__inner bd-page-width">
   <label class="sidebar-toggle primary-toggle" for="__primary">
     <span class="fa-solid fa-bars"></span>
@@ -151,7 +144,7 @@
   
   
   
-    <p class="title logo__title">Py-ART 1.15.1.post34 documentation</p>
+    <p class="title logo__title">Py-ART 1.15.1.post42 documentation</p>
   
 </a></div>
     
@@ -163,12 +156,6 @@
       
         <div class="navbar-item">
 <nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -312,10 +299,15 @@ document.write(`
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
@@ -328,12 +320,6 @@ document.write(`
         
           <div class="navbar-item">
 <nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -495,7 +481,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
 <h1>Source code for pyart.aux_io.rainbow_wrl</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -560,9 +546,7 @@ document.write(`
 <span class="p">}</span>
 
 
-<div class="viewcode-block" id="read_rainbow_wrl">
-<a class="viewcode-back" href="../../../API/generated/pyart.aux_io.read_rainbow_wrl.html#pyart.aux_io.read_rainbow_wrl">[docs]</a>
-<span class="k">def</span> <span class="nf">read_rainbow_wrl</span><span class="p">(</span>
+<div class="viewcode-block" id="read_rainbow_wrl"><a class="viewcode-back" href="../../../API/generated/pyart.aux_io.read_rainbow_wrl.html#pyart.aux_io.read_rainbow_wrl">[docs]</a><span class="k">def</span> <span class="nf">read_rainbow_wrl</span><span class="p">(</span>
     <span class="n">filename</span><span class="p">,</span>
     <span class="n">field_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">additional_metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -749,7 +733,7 @@ document.write(`
 
     <span class="k">if</span> <span class="n">single_slice</span><span class="p">:</span>
         <span class="n">rays_per_sweep</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">common_slice_info</span><span class="p">[</span><span class="s2">&quot;slicedata&quot;</span><span class="p">][</span><span class="s2">&quot;rawdata&quot;</span><span class="p">][</span><span class="s2">&quot;@rays&quot;</span><span class="p">])</span>
-        <span class="n">nbins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">common_slice_info</span><span class="p">[</span><span class="s2">&quot;slicedata&quot;</span><span class="p">][</span><span class="s2">&quot;rawdata&quot;</span><span class="p">][</span><span class="s2">&quot;@bins&quot;</span><span class="p">])</span>
+        <span class="n">maxbin</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">common_slice_info</span><span class="p">[</span><span class="s2">&quot;slicedata&quot;</span><span class="p">][</span><span class="s2">&quot;rawdata&quot;</span><span class="p">][</span><span class="s2">&quot;@bins&quot;</span><span class="p">])</span>
         <span class="n">ssri</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int32&quot;</span><span class="p">)</span>
         <span class="n">seri</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">rays_per_sweep</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int32&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -765,8 +749,12 @@ document.write(`
 
         <span class="c1"># all sweeps have to have the same number of range bins</span>
         <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">nbins_sweep</span> <span class="o">!=</span> <span class="n">nbins_sweep</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;number of range bins changes between sweeps&quot;</span><span class="p">)</span>
-        <span class="n">nbins</span> <span class="o">=</span> <span class="n">nbins_sweep</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># raise ValueError(&quot;number of range bins changes between sweeps&quot;)</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">&quot;WARNING: number of range bins changes between sweeps &quot;</span>
+                <span class="o">+</span> <span class="s2">&quot;max number of bins will be used&quot;</span>
+            <span class="p">)</span>
+        <span class="n">maxbin</span> <span class="o">=</span> <span class="n">nbins_sweep</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
         <span class="n">ssri</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">rays_per_sweep</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int32&quot;</span><span class="p">)</span>
         <span class="n">seri</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">rays_per_sweep</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int32&quot;</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
 
@@ -776,14 +764,23 @@ document.write(`
     <span class="n">sweep_end_ray_index</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">seri</span>
 
     <span class="c1"># range</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">single_slice</span><span class="p">:</span>
+        <span class="c1"># all sweeps have to have the same range resolution</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nslices</span><span class="p">):</span>
+            <span class="n">slice_info</span> <span class="o">=</span> <span class="n">rbf</span><span class="p">[</span><span class="s2">&quot;volume&quot;</span><span class="p">][</span><span class="s2">&quot;scan&quot;</span><span class="p">][</span><span class="s2">&quot;slice&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">slice_info</span><span class="p">[</span><span class="s2">&quot;rangestep&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">common_slice_info</span><span class="p">[</span><span class="s2">&quot;rangestep&quot;</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;range resolution changes between sweeps&quot;</span><span class="p">)</span>
+
     <span class="n">r_res</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">common_slice_info</span><span class="p">[</span><span class="s2">&quot;rangestep&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="mf">1000.0</span>
     <span class="k">if</span> <span class="s2">&quot;start_range&quot;</span> <span class="ow">in</span> <span class="n">common_slice_info</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="n">start_range</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">common_slice_info</span><span class="p">[</span><span class="s2">&quot;start_range&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="mf">1000.0</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">start_range</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">_range</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span>
-        <span class="n">start_range</span> <span class="o">+</span> <span class="n">r_res</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">nbins</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">r_res</span> <span class="o">+</span> <span class="n">r_res</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">nbins</span>
+        <span class="n">start_range</span> <span class="o">+</span> <span class="n">r_res</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">maxbin</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">r_res</span> <span class="o">+</span> <span class="n">r_res</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">maxbin</span>
     <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+    <span class="n">_range</span><span class="p">[</span><span class="s2">&quot;meters_between_gates&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_res</span>
+    <span class="n">_range</span><span class="p">[</span><span class="s2">&quot;meters_to_center_of_first_gate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_range</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="c1"># containers for data</span>
     <span class="n">t_fixed_angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">nslices</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
@@ -791,7 +788,7 @@ document.write(`
     <span class="n">static_angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">total_rays</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
     <span class="n">time_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">total_rays</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
     <span class="n">fdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
-        <span class="p">(</span><span class="n">total_rays</span><span class="p">,</span> <span class="n">nbins</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">get_fillvalue</span><span class="p">()</span>
+        <span class="p">(</span><span class="n">total_rays</span><span class="p">,</span> <span class="n">maxbin</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">get_fillvalue</span><span class="p">()</span>
     <span class="p">)</span>
 
     <span class="c1"># read data from file</span>
@@ -840,7 +837,10 @@ document.write(`
 
         <span class="c1"># data</span>
         <span class="n">fdata</span><span class="p">[</span><span class="n">ssri</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">:</span> <span class="n">seri</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">_get_data</span><span class="p">(</span>
-            <span class="n">slice_info</span><span class="p">[</span><span class="s2">&quot;slicedata&quot;</span><span class="p">][</span><span class="s2">&quot;rawdata&quot;</span><span class="p">],</span> <span class="n">rays_per_sweep</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">nbins</span>
+            <span class="n">slice_info</span><span class="p">[</span><span class="s2">&quot;slicedata&quot;</span><span class="p">][</span><span class="s2">&quot;rawdata&quot;</span><span class="p">],</span>
+            <span class="n">rays_per_sweep</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+            <span class="n">nbins_sweep</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+            <span class="n">maxbin</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="k">if</span> <span class="n">bfile</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.vol&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">bfile</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.azi&quot;</span><span class="p">):</span>
@@ -887,7 +887,6 @@ document.write(`
         <span class="n">elevation</span><span class="p">,</span>
         <span class="n">instrument_parameters</span><span class="o">=</span><span class="n">instrument_parameters</span><span class="p">,</span>
     <span class="p">)</span></div>
-
 
 
 <span class="k">def</span> <span class="nf">_get_angle</span><span class="p">(</span><span class="n">ray_info</span><span class="p">,</span> <span class="n">angle_step</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scan_type</span><span class="o">=</span><span class="s2">&quot;ppi&quot;</span><span class="p">):</span>
@@ -942,7 +941,7 @@ document.write(`
     <span class="k">return</span> <span class="n">moving_angle</span><span class="p">,</span> <span class="n">angle_start</span><span class="p">,</span> <span class="n">angle_stop</span>
 
 
-<span class="k">def</span> <span class="nf">_get_data</span><span class="p">(</span><span class="n">rawdata</span><span class="p">,</span> <span class="n">nrays</span><span class="p">,</span> <span class="n">nbins</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_get_data</span><span class="p">(</span><span class="n">rawdata</span><span class="p">,</span> <span class="n">nrays</span><span class="p">,</span> <span class="n">nbins</span><span class="p">,</span> <span class="n">maxbin</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Obtains the raw data</span>
 
@@ -983,7 +982,12 @@ document.write(`
     <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="n">nrays</span><span class="p">,</span> <span class="n">nbins</span><span class="p">])</span>
     <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="p">[</span><span class="n">nrays</span><span class="p">,</span> <span class="n">nbins</span><span class="p">])</span>
 
-    <span class="n">masked_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">get_fillvalue</span><span class="p">())</span>
+    <span class="n">data_tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">nrays</span><span class="p">,</span> <span class="n">maxbin</span><span class="p">),</span> <span class="n">get_fillvalue</span><span class="p">())</span>
+    <span class="n">data_tmp</span><span class="p">[:</span><span class="n">nrays</span><span class="p">,</span> <span class="p">:</span><span class="n">nbins</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+    <span class="n">mask_tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">nrays</span><span class="p">,</span> <span class="n">maxbin</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">mask_tmp</span><span class="p">[:</span><span class="n">nrays</span><span class="p">,</span> <span class="p">:</span><span class="n">nbins</span><span class="p">]</span> <span class="o">=</span> <span class="n">mask</span>
+
+    <span class="n">masked_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_tmp</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask_tmp</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">get_fillvalue</span><span class="p">())</span>
 
     <span class="k">return</span> <span class="n">masked_data</span>
 
@@ -1074,6 +1078,8 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -1085,8 +1091,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1106,7 +1112,7 @@ document.write(`
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>
@@ -1119,7 +1125,7 @@ document.write(`
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
 </p></div>
       
     </div>

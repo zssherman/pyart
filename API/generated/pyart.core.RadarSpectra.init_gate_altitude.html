@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" data-theme="light">
+<html lang="en" data-content_root="" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>pyart.core.RadarSpectra.init_gate_altitude &#8212; Py-ART 1.15.1.post34 documentation</title>
+    <title>pyart.core.RadarSpectra.init_gate_altitude &#8212; Py-ART 1.15.1.post42 documentation</title>
   
   
   
@@ -18,15 +18,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
@@ -40,24 +40,18 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pyart-theme.css?v=40b48845" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=a30171b7"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=0a3def1a"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-JJEG3CV376"></script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-JJEG3CV376');
-            </script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
@@ -90,10 +84,9 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -134,7 +127,7 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
 <div class="bd-header__inner bd-page-width">
   <label class="sidebar-toggle primary-toggle" for="__primary">
     <span class="fa-solid fa-bars"></span>
@@ -154,7 +147,7 @@
   
   
   
-    <p class="title logo__title">Py-ART 1.15.1.post34 documentation</p>
+    <p class="title logo__title">Py-ART 1.15.1.post42 documentation</p>
   
 </a></div>
     
@@ -166,12 +159,6 @@
       
         <div class="navbar-item">
 <nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -319,10 +306,13 @@ document.write(`
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -335,12 +325,6 @@ document.write(`
         
           <div class="navbar-item">
 <nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -676,7 +660,9 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.compute_l.html">pyart.retrieve.compute_l</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.compute_noisedBZ.html">pyart.retrieve.compute_noisedBZ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.compute_snr.html">pyart.retrieve.compute_snr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.conv_strat_raut.html">pyart.retrieve.conv_strat_raut</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.conv_strat_yuter.html">pyart.retrieve.conv_strat_yuter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.create_cfad.html">pyart.retrieve.create_cfad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.dealias_spectra.html">pyart.retrieve.dealias_spectra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.est_rain_rate_a.html">pyart.retrieve.est_rain_rate_a</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.retrieve.est_rain_rate_hydro.html">pyart.retrieve.est_rain_rate_hydro</a></li>
@@ -1096,6 +1082,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="pyart.testing.make_empty_ppi_radar.html">pyart.testing.make_empty_ppi_radar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.testing.make_empty_rhi_radar.html">pyart.testing.make_empty_rhi_radar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.testing.make_empty_spectra_radar.html">pyart.testing.make_empty_spectra_radar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyart.testing.make_gaussian_storm_grid.html">pyart.testing.make_gaussian_storm_grid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.testing.make_normal_storm.html">pyart.testing.make_normal_storm</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.testing.make_single_ray_radar.html">pyart.testing.make_single_ray_radar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyart.testing.make_storm_grid.html">pyart.testing.make_storm_grid</a></li>
@@ -1170,13 +1157,13 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
 <section id="pyart-core-radarspectra-init-gate-altitude">
-<h1>pyart.core.RadarSpectra.init_gate_altitude<a class="headerlink" href="#pyart-core-radarspectra-init-gate-altitude" title="Link to this heading">#</a></h1>
+<h1>pyart.core.RadarSpectra.init_gate_altitude<a class="headerlink" href="#pyart-core-radarspectra-init-gate-altitude" title="Permalink to this heading">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyart.core.RadarSpectra.init_gate_altitude">
-<span class="sig-prename descclassname"><span class="pre">RadarSpectra.</span></span><span class="sig-name descname"><span class="pre">init_gate_altitude</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyart/core/radar_spectra.html#RadarSpectra.init_gate_altitude"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyart.core.RadarSpectra.init_gate_altitude" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">RadarSpectra.</span></span><span class="sig-name descname"><span class="pre">init_gate_altitude</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyart/core/radar_spectra.html#RadarSpectra.init_gate_altitude"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyart.core.RadarSpectra.init_gate_altitude" title="Permalink to this definition">#</a></dt>
 <dd><p>Initialize the gate_altitude attribute.</p>
 </dd></dl>
 
@@ -1223,12 +1210,14 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
 
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyart.core.RadarSpectra.init_gate_altitude"><code class="docutils literal notranslate"><span class="pre">RadarSpectra.init_gate_altitude()</span></code></a></li>
 </ul>
@@ -1256,8 +1245,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1277,7 +1266,7 @@ document.write(`
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>
@@ -1290,7 +1279,7 @@ document.write(`
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
 </p></div>
       
     </div>

@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" data-theme="light">
+<html lang="en" data-content_root="" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Reading Older NEXRAD Data and Fixing Latitude and Longitude Issues &#8212; Py-ART 1.15.1.post34 documentation</title>
+    <title>Reading Older NEXRAD Data and Fixing Latitude and Longitude Issues &#8212; Py-ART 1.15.1.post42 documentation</title>
   
   
   
@@ -18,15 +18,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
@@ -40,24 +40,18 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pyart-theme.css?v=40b48845" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../../_static/documentation_options.js?v=a30171b7"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=0a3def1a"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-JJEG3CV376"></script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-JJEG3CV376');
-            </script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
@@ -90,10 +84,9 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -134,7 +127,7 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
 <div class="bd-header__inner bd-page-width">
   <label class="sidebar-toggle primary-toggle" for="__primary">
     <span class="fa-solid fa-bars"></span>
@@ -154,7 +147,7 @@
   
   
   
-    <p class="title logo__title">Py-ART 1.15.1.post34 documentation</p>
+    <p class="title logo__title">Py-ART 1.15.1.post42 documentation</p>
   
 </a></div>
     
@@ -166,12 +159,6 @@
       
         <div class="navbar-item">
 <nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -319,10 +306,13 @@ document.write(`
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -335,12 +325,6 @@ document.write(`
         
           <div class="navbar-item">
 <nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -471,6 +455,7 @@ document.write(`
 <li class="toctree-l1 has-children"><a class="reference internal" href="../mapping/index.html">Mapping examples</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../mapping/plot_map_one_radar_to_grid.html">Map a single radar to a Cartesian grid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mapping/plot_map_two_radars_to_grid.html">Map two radars to a Cartesian grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mapping/plot_grid_single_sweep_ppi.html">Map a single PPI sweep to a Cartesian grid using 2D weighting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mapping/plot_compare_two_radars_gatemapper.html">Compare Two Radars Using Gatemapper</a></li>
 </ul>
 </li>
@@ -499,6 +484,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../retrieve/plot_composite_reflectivity.html">Calculate and Plot Composite Reflectivity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../retrieve/plot_vad.html">Calculate and Plot VAD profile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../retrieve/plot_hydrometeor.html">Calculate and Plot hydrometeor classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../retrieve/plot_cfad.html">Creating a CFAD diagram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../retrieve/plot_convective_stratiform.html">Convective-Stratiform classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../retrieve/plot_feature_detection.html">Feature Detection classification</a></li>
 </ul>
@@ -567,97 +553,86 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-<section class="tex2jax_ignore mathjax_ignore" id="reading-older-nexrad-data-and-fixing-latitude-and-longitude-issues">
-<h1>Reading Older NEXRAD Data and Fixing Latitude and Longitude Issues<a class="headerlink" href="#reading-older-nexrad-data-and-fixing-latitude-and-longitude-issues" title="Link to this heading">#</a></h1>
+<div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-examples-io-plot-older-nexrad-data-aws-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="reading-older-nexrad-data-and-fixing-latitude-and-longitude-issues">
+<span id="sphx-glr-examples-io-plot-older-nexrad-data-aws-py"></span><h1>Reading Older NEXRAD Data and Fixing Latitude and Longitude Issues<a class="headerlink" href="#reading-older-nexrad-data-and-fixing-latitude-and-longitude-issues" title="Permalink to this heading">#</a></h1>
 <p>In this example, we will show how to read in older NEXRAD files prior
 to 2008 that are missing some coordinate metadata.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
 
 
 <span class="c1"># Author: Zachary Sherman (zsherman@anl.gov)</span>
 <span class="c1"># License: BSD 3 clause</span>
 </pre></div>
 </div>
-</div>
-</div>
 <p>Import our required packages.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="kn">import</span> <span class="nn">pyart</span>
 </pre></div>
 </div>
-</div>
-</div>
 <section id="read-older-nexrad-level-2-data">
-<h2>Read older NEXRAD Level 2 Data<a class="headerlink" href="#read-older-nexrad-level-2-data" title="Link to this heading">#</a></h2>
+<h2>Read older NEXRAD Level 2 Data<a class="headerlink" href="#read-older-nexrad-level-2-data" title="Permalink to this heading">#</a></h2>
 <p>Older NEXRAD files prior to 2008, have the tendency to not contain some of
 the required metadata for Py-ART’s NEXRAD reader. This usually results in
 missing latitude and longitude data, so after reading with Py-ART, both
 coordinates have a value of 0. This example, we will show how to properly
 read in an older NEXRAD file.</p>
 <p>First we want to get an older file from amazon web service:</p>
-<p><code class="docutils literal notranslate"><span class="pre">s3://noaa-nexrad-level2/year/month/date/radarsite/{radarsite}{year}{month}{date}_{hour}{minute}{second}.gz</span></code></p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">s3://noaa-nexrad-level2/year/month/date/radarsite/{radarsite}{year}{month}{date}_{hour}{minute}{second}.gz</span></code></p>
+</div></blockquote>
 <p>Where in our case, we are using a sample data file from Handford, CA (KHNX)
 on July 24, 2006, at 0203:38 UTC. This means our path would look like this:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note: Older files do not contain the &#39;V06&#39; but instead &#39;.gz&#39; in the AWS path.</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note: Older files do not contain the &#39;V06&#39; but instead &#39;.gz&#39; in the AWS path.</span>
 
 <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">aws_nexrad_level2_file</span></a> <span class="o">=</span> <span class="p">(</span>
     <span class="s2">&quot;s3://noaa-nexrad-level2/2006/07/24/KHNX/KHNX20060724_020338.gz&quot;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
 <p>We can use the <strong>pyart.io.read_nexrad_archive</strong> module to access our data, passing in the filepath.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radar</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read_nexrad_archive</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">aws_nexrad_level2_file</span></a><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">radar</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read_nexrad_archive</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">aws_nexrad_level2_file</span></a><span class="p">)</span>
 </pre></div>
 </div>
-</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/work/pyart/pyart/pyart/io/nexrad_archive.py:231: UserWarning: Gate spacing is not constant, interpolating data in scans [0, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] for moment REF.
+  warnings.warn(
+</pre></div>
 </div>
 <p>Now let us take a look at the radar latitude and longitude data.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">radar</span><span class="o">.</span><span class="n">latitude</span></a><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">radar</span><span class="o">.</span><span class="n">latitude</span></a><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">radar</span><span class="o">.</span><span class="n">longitude</span></a><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[0.]
+[0.]
+</pre></div>
 </div>
 <p>This is clearly not correct! The problem is the reader could not find the
 metadata (message 31) for the coordinates.</p>
 <p>Lucky for us, we can provide the station in Py-ART’s NEXRAD reader, which will
 pull the coordinate information from a dictionary found within Py-ART.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radar</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read_nexrad_archive</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">aws_nexrad_level2_file</span></a><span class="p">,</span> <span class="n">station</span><span class="o">=</span><span class="s2">&quot;KHNX&quot;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">radar</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read_nexrad_archive</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">aws_nexrad_level2_file</span></a><span class="p">,</span> <span class="n">station</span><span class="o">=</span><span class="s2">&quot;KHNX&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
 <p>Again, let us take a look at the radar latitude and longitude data.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">radar</span><span class="o">.</span><span class="n">latitude</span></a><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">radar</span><span class="o">.</span><span class="n">latitude</span></a><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">radar</span><span class="o">.</span><span class="n">longitude</span></a><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[36.31417]
+[-119.63111]
+</pre></div>
 </div>
 <p>Everything now looks correct as this is in Handford CA!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can create a plot as well utilizing Cartopy to see how it looks.</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can create a plot as well utilizing Cartopy to see how it looks.</span>
 <span class="n">display</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">RadarMapDisplay</span><span class="p">(</span><span class="n">radar</span><span class="p">)</span>
 
 <span class="c1"># Setting projection and ploting the first tilt.</span>
@@ -672,8 +647,22 @@ pull the coordinate information from a dictionary found within Py-ART.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
+<img src="../../_images/sphx_glr_plot_older_nexrad_data_aws_001.png" srcset="../../_images/sphx_glr_plot_older_nexrad_data_aws_001.png" alt="KHNX 0.4 Deg. 2006-07-24T02:03:37Z  Equivalent reflectivity factor" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/pyart-docs/lib/python3.12/site-packages/cartopy/io/__init__.py:241: DownloadWarning: Downloading: https://naturalearth.s3.amazonaws.com/10m_physical/ne_10m_coastline.zip
+  warnings.warn(f&#39;Downloading: {url}&#39;, DownloadWarning)
+/home/runner/micromamba/envs/pyart-docs/lib/python3.12/site-packages/cartopy/io/__init__.py:241: DownloadWarning: Downloading: https://naturalearth.s3.amazonaws.com/10m_cultural/ne_10m_admin_1_states_provinces_lines.zip
+  warnings.warn(f&#39;Downloading: {url}&#39;, DownloadWarning)
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 8.876 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-io-plot-older-nexrad-data-aws-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/949d311bfe8355d0dbad6706fc359cce/plot_older_nexrad_data_aws.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_older_nexrad_data_aws.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/dd8047f1249e597155ffad03108f4a4e/plot_older_nexrad_data_aws.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_older_nexrad_data_aws.py</span></code></a></p>
 </div>
 </div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
 </section>
 
@@ -718,12 +707,14 @@ pull the coordinate information from a dictionary found within Py-ART.</p>
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
 
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-older-nexrad-level-2-data">Read older NEXRAD Level 2 Data</a></li>
 </ul>
@@ -732,7 +723,7 @@ pull the coordinate information from a dictionary found within Py-ART.</p>
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../../_sources/examples/io/plot_older_nexrad_data_aws.ipynb.txt">
+    <a href="../../_sources/examples/io/plot_older_nexrad_data_aws.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
@@ -751,8 +742,8 @@ pull the coordinate information from a dictionary found within Py-ART.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -772,7 +763,7 @@ pull the coordinate information from a dictionary found within Py-ART.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     <br/>
   </p>
 </div>
@@ -785,7 +776,7 @@ pull the coordinate information from a dictionary found within Py-ART.</p>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
 </p></div>
       
     </div>

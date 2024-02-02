@@ -31,7 +31,11 @@
     
     compute_snr
     
+    conv_strat_raut
+    
     conv_strat_yuter
+    
+    create_cfad
     
     dealias_spectra
     
