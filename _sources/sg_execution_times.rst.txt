@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**05:35.168** total execution time for 41 files **from all galleries**:
+**05:15.269** total execution time for 41 files **from all galleries**:
 
 .. container::
 
@@ -33,125 +33,125 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_examples_correct_plot_dealias.py` (``../../examples/correct/plot_dealias.py``)
-     - 01:02.126
+     - 01:01.487
      - 0.0
    * - :ref:`sphx_glr_examples_mapping_plot_compare_two_radars_gatemapper.py` (``../../examples/mapping/plot_compare_two_radars_gatemapper.py``)
-     - 00:34.166
+     - 00:35.745
      - 0.0
    * - :ref:`sphx_glr_examples_retrieve_plot_feature_detection.py` (``../../examples/retrieve/plot_feature_detection.py``)
-     - 00:28.240
+     - 00:27.196
      - 0.0
    * - :ref:`sphx_glr_examples_retrieve_plot_convective_stratiform.py` (``../../examples/retrieve/plot_convective_stratiform.py``)
-     - 00:21.206
+     - 00:21.168
      - 0.0
    * - :ref:`sphx_glr_examples_io_plot_nexrad_data_aws.py` (``../../examples/io/plot_nexrad_data_aws.py``)
-     - 00:15.831
-     - 0.0
-   * - :ref:`sphx_glr_examples_plotting_plot_three_panel_gridmapdisplay.py` (``../../examples/plotting/plot_three_panel_gridmapdisplay.py``)
-     - 00:15.097
-     - 0.0
-   * - :ref:`sphx_glr_examples_mapping_plot_map_two_radars_to_grid.py` (``../../examples/mapping/plot_map_two_radars_to_grid.py``)
-     - 00:13.733
+     - 00:14.825
      - 0.0
    * - :ref:`sphx_glr_examples_plotting_plot_max_cappi.py` (``../../examples/plotting/plot_max_cappi.py``)
-     - 00:12.716
+     - 00:13.401
      - 0.0
-   * - :ref:`sphx_glr_examples_correct_plot_attenuation.py` (``../../examples/correct/plot_attenuation.py``)
-     - 00:11.758
-     - 0.0
-   * - :ref:`sphx_glr_examples_retrieve_plot_hydrometeor_class_x_band.py` (``../../examples/retrieve/plot_hydrometeor_class_x_band.py``)
-     - 00:10.612
+   * - :ref:`sphx_glr_examples_mapping_plot_map_two_radars_to_grid.py` (``../../examples/mapping/plot_map_two_radars_to_grid.py``)
+     - 00:10.531
      - 0.0
    * - :ref:`sphx_glr_examples_xradar_plot_dealias_xradar.py` (``../../examples/xradar/plot_dealias_xradar.py``)
-     - 00:09.694
+     - 00:10.360
      - 0.0
-   * - :ref:`sphx_glr_examples_plotting_plot_ppi_with_rings.py` (``../../examples/plotting/plot_ppi_with_rings.py``)
-     - 00:09.288
-     - 0.0
-   * - :ref:`sphx_glr_examples_mapping_plot_map_one_radar_to_grid.py` (``../../examples/mapping/plot_map_one_radar_to_grid.py``)
-     - 00:09.149
+   * - :ref:`sphx_glr_examples_retrieve_plot_hydrometeor_class_x_band.py` (``../../examples/retrieve/plot_hydrometeor_class_x_band.py``)
+     - 00:10.230
      - 0.0
    * - :ref:`sphx_glr_examples_plotting_plot_cross_section.py` (``../../examples/plotting/plot_cross_section.py``)
-     - 00:08.807
+     - 00:09.138
+     - 0.0
+   * - :ref:`sphx_glr_examples_correct_plot_attenuation.py` (``../../examples/correct/plot_attenuation.py``)
+     - 00:08.997
      - 0.0
    * - :ref:`sphx_glr_examples_io_plot_older_nexrad_data_aws.py` (``../../examples/io/plot_older_nexrad_data_aws.py``)
-     - 00:08.426
+     - 00:08.910
+     - 0.0
+   * - :ref:`sphx_glr_examples_plotting_plot_ppi_with_rings.py` (``../../examples/plotting/plot_ppi_with_rings.py``)
+     - 00:08.887
+     - 0.0
+   * - :ref:`sphx_glr_examples_plotting_plot_three_panel_gridmapdisplay.py` (``../../examples/plotting/plot_three_panel_gridmapdisplay.py``)
+     - 00:07.777
+     - 0.0
+   * - :ref:`sphx_glr_examples_mapping_plot_map_one_radar_to_grid.py` (``../../examples/mapping/plot_map_one_radar_to_grid.py``)
+     - 00:06.052
      - 0.0
    * - :ref:`sphx_glr_examples_mapping_plot_grid_single_sweep_ppi.py` (``../../examples/mapping/plot_grid_single_sweep_ppi.py``)
-     - 00:06.272
+     - 00:06.048
      - 0.0
    * - :ref:`sphx_glr_examples_xradar_plot_grid_xradar.py` (``../../examples/xradar/plot_grid_xradar.py``)
-     - 00:04.712
-     - 0.0
-   * - :ref:`sphx_glr_examples_plotting_plot_nexrad_image_muted_reflectivity.py` (``../../examples/plotting/plot_nexrad_image_muted_reflectivity.py``)
-     - 00:04.652
-     - 0.0
-   * - :ref:`sphx_glr_examples_plotting_plot_nexrad_multiple_moments.py` (``../../examples/plotting/plot_nexrad_multiple_moments.py``)
-     - 00:04.487
+     - 00:04.990
      - 0.0
    * - :ref:`sphx_glr_examples_xradar_plot_xradar.py` (``../../examples/xradar/plot_xradar.py``)
-     - 00:03.676
+     - 00:04.013
      - 0.0
-   * - :ref:`sphx_glr_examples_retrieve_plot_vad.py` (``../../examples/retrieve/plot_vad.py``)
-     - 00:03.609
-     - 0.0
-   * - :ref:`sphx_glr_examples_retrieve_plot_hydrometeor.py` (``../../examples/retrieve/plot_hydrometeor.py``)
-     - 00:03.249
+   * - :ref:`sphx_glr_examples_plotting_plot_nexrad_image_muted_reflectivity.py` (``../../examples/plotting/plot_nexrad_image_muted_reflectivity.py``)
+     - 00:03.909
      - 0.0
    * - :ref:`sphx_glr_examples_retrieve_plot_composite_reflectivity.py` (``../../examples/retrieve/plot_composite_reflectivity.py``)
-     - 00:03.219
+     - 00:03.529
+     - 0.0
+   * - :ref:`sphx_glr_examples_plotting_plot_nexrad_multiple_moments.py` (``../../examples/plotting/plot_nexrad_multiple_moments.py``)
+     - 00:03.464
+     - 0.0
+   * - :ref:`sphx_glr_examples_retrieve_plot_hydrometeor.py` (``../../examples/retrieve/plot_hydrometeor.py``)
+     - 00:03.210
      - 0.0
    * - :ref:`sphx_glr_examples_plotting_plot_modify_colorbar.py` (``../../examples/plotting/plot_modify_colorbar.py``)
-     - 00:03.120
+     - 00:03.175
+     - 0.0
+   * - :ref:`sphx_glr_examples_retrieve_plot_vad.py` (``../../examples/retrieve/plot_vad.py``)
+     - 00:03.141
      - 0.0
    * - :ref:`sphx_glr_examples_retrieve_plot_cfad.py` (``../../examples/retrieve/plot_cfad.py``)
-     - 00:02.731
-     - 0.0
-   * - :ref:`sphx_glr_examples_retrieve_plot_column_subset.py` (``../../examples/retrieve/plot_column_subset.py``)
-     - 00:02.164
+     - 00:02.590
      - 0.0
    * - :ref:`sphx_glr_examples_plotting_plot_ppi_mdv.py` (``../../examples/plotting/plot_ppi_mdv.py``)
-     - 00:02.158
+     - 00:02.260
      - 0.0
-   * - :ref:`sphx_glr_examples_plotting_plot_nexrad_reflectivity.py` (``../../examples/plotting/plot_nexrad_reflectivity.py``)
-     - 00:02.122
+   * - :ref:`sphx_glr_examples_retrieve_plot_column_subset.py` (``../../examples/retrieve/plot_column_subset.py``)
+     - 00:02.227
      - 0.0
    * - :ref:`sphx_glr_examples_plotting_plot_cappi.py` (``../../examples/plotting/plot_cappi.py``)
-     - 00:02.050
-     - 0.0
-   * - :ref:`sphx_glr_examples_plotting_plot_rhi_contours_differential_reflectivity.py` (``../../examples/plotting/plot_rhi_contours_differential_reflectivity.py``)
-     - 00:02.027
+     - 00:02.134
      - 0.0
    * - :ref:`sphx_glr_examples_plotting_plot_choose_a_colormap.py` (``../../examples/plotting/plot_choose_a_colormap.py``)
-     - 00:01.985
+     - 00:02.074
      - 0.0
    * - :ref:`sphx_glr_examples_plotting_plot_rhi_cfradial.py` (``../../examples/plotting/plot_rhi_cfradial.py``)
-     - 00:01.827
+     - 00:01.865
      - 0.0
-   * - :ref:`sphx_glr_examples_plotting_plot_rhi_cfradial_singlescan.py` (``../../examples/plotting/plot_rhi_cfradial_singlescan.py``)
-     - 00:01.779
-     - 0.0
-   * - :ref:`sphx_glr_examples_plotting_plot_rhi_data_overlay.py` (``../../examples/plotting/plot_rhi_data_overlay.py``)
-     - 00:01.544
+   * - :ref:`sphx_glr_examples_plotting_plot_nexrad_reflectivity.py` (``../../examples/plotting/plot_nexrad_reflectivity.py``)
+     - 00:01.680
      - 0.0
    * - :ref:`sphx_glr_examples_plotting_plot_xsect.py` (``../../examples/plotting/plot_xsect.py``)
-     - 00:01.379
+     - 00:01.417
+     - 0.0
+   * - :ref:`sphx_glr_examples_plotting_plot_rhi_contours_differential_reflectivity.py` (``../../examples/plotting/plot_rhi_contours_differential_reflectivity.py``)
+     - 00:01.409
      - 0.0
    * - :ref:`sphx_glr_examples_plotting_plot_ppi_cfradial.py` (``../../examples/plotting/plot_ppi_cfradial.py``)
-     - 00:01.362
+     - 00:01.395
      - 0.0
-   * - :ref:`sphx_glr_examples_plotting_plot_rhi_mdv.py` (``../../examples/plotting/plot_rhi_mdv.py``)
-     - 00:01.280
+   * - :ref:`sphx_glr_examples_plotting_plot_rhi_cfradial_singlescan.py` (``../../examples/plotting/plot_rhi_cfradial_singlescan.py``)
+     - 00:01.094
      - 0.0
    * - :ref:`sphx_glr_examples_plotting_plot_corner_reflector.py` (``../../examples/plotting/plot_corner_reflector.py``)
-     - 00:01.254
+     - 00:01.083
+     - 0.0
+   * - :ref:`sphx_glr_examples_plotting_plot_rhi_data_overlay.py` (``../../examples/plotting/plot_rhi_data_overlay.py``)
+     - 00:00.973
      - 0.0
    * - :ref:`sphx_glr_examples_plotting_plot_rhi_two_panel.py` (``../../examples/plotting/plot_rhi_two_panel.py``)
-     - 00:00.843
+     - 00:00.870
      - 0.0
    * - :ref:`sphx_glr_examples_correct_plot_cloud_mask.py` (``../../examples/correct/plot_cloud_mask.py``)
-     - 00:00.505
+     - 00:00.773
+     - 0.0
+   * - :ref:`sphx_glr_examples_plotting_plot_rhi_mdv.py` (``../../examples/plotting/plot_rhi_mdv.py``)
+     - 00:00.681
      - 0.0
    * - :ref:`sphx_glr_examples_correct_plot_zdr_check.py` (``../../examples/correct/plot_zdr_check.py``)
-     - 00:00.316
+     - 00:00.560
      - 0.0
