@@ -15,8 +15,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -26,10 +26,10 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -41,10 +41,10 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/pyart-theme.css?v=40b48845" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=ac88e3c8"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
@@ -183,7 +183,9 @@
 </li>
 
             <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
@@ -403,9 +405,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -456,26 +463,26 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
 
-<span class="kn">from</span> <span class="nn">..config</span> <span class="kn">import</span> <span class="n">get_metadata</span>
-<span class="kn">from</span> <span class="nn">..core.grid</span> <span class="kn">import</span> <span class="n">Grid</span>
-<span class="kn">from</span> <span class="nn">..core.radar</span> <span class="kn">import</span> <span class="n">Radar</span>
-<span class="kn">from</span> <span class="nn">..exceptions</span> <span class="kn">import</span> <span class="n">MissingOptionalDependency</span>
-<span class="kn">from</span> <span class="nn">.sample_files</span> <span class="kn">import</span> <span class="n">_EXAMPLE_RAYS_FILE</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..config</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_metadata</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.grid</span><span class="w"> </span><span class="kn">import</span> <span class="n">Grid</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.radar</span><span class="w"> </span><span class="kn">import</span> <span class="n">Radar</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">MissingOptionalDependency</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.sample_files</span><span class="w"> </span><span class="kn">import</span> <span class="n">_EXAMPLE_RAYS_FILE</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
 
-    <span class="kn">from</span> <span class="nn">..core.radar_spectra</span> <span class="kn">import</span> <span class="n">RadarSpectra</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">..core.radar_spectra</span><span class="w"> </span><span class="kn">import</span> <span class="n">RadarSpectra</span>
 
     <span class="n">_XARRAY_AVAILABLE</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="n">_XARRAY_AVAILABLE</span> <span class="o">=</span> <span class="kc">False</span>
 
 
-<div class="viewcode-block" id="make_empty_ppi_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_empty_ppi_radar.html#pyart.testing.make_empty_ppi_radar">[docs]</a><span class="k">def</span> <span class="nf">make_empty_ppi_radar</span><span class="p">(</span><span class="n">ngates</span><span class="p">,</span> <span class="n">rays_per_sweep</span><span class="p">,</span> <span class="n">nsweeps</span><span class="p">):</span>
+<div class="viewcode-block" id="make_empty_ppi_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_empty_ppi_radar.html#pyart.testing.make_empty_ppi_radar">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">make_empty_ppi_radar</span><span class="p">(</span><span class="n">ngates</span><span class="p">,</span> <span class="n">rays_per_sweep</span><span class="p">,</span> <span class="n">nsweeps</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return an Radar object, representing a PPI scan.</span>
 
@@ -556,7 +563,7 @@
     <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="make_empty_rhi_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_empty_rhi_radar.html#pyart.testing.make_empty_rhi_radar">[docs]</a><span class="k">def</span> <span class="nf">make_empty_rhi_radar</span><span class="p">(</span><span class="n">ngates</span><span class="p">,</span> <span class="n">rays_per_sweep</span><span class="p">,</span> <span class="n">nsweeps</span><span class="p">):</span>
+<div class="viewcode-block" id="make_empty_rhi_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_empty_rhi_radar.html#pyart.testing.make_empty_rhi_radar">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">make_empty_rhi_radar</span><span class="p">(</span><span class="n">ngates</span><span class="p">,</span> <span class="n">rays_per_sweep</span><span class="p">,</span> <span class="n">nsweeps</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return an Radar object, representing a RHI scan.</span>
 
@@ -585,7 +592,7 @@
     <span class="k">return</span> <span class="n">radar</span></div>
 
 
-<div class="viewcode-block" id="make_target_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_target_radar.html#pyart.testing.make_target_radar">[docs]</a><span class="k">def</span> <span class="nf">make_target_radar</span><span class="p">():</span>
+<div class="viewcode-block" id="make_target_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_target_radar.html#pyart.testing.make_target_radar">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">make_target_radar</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return a PPI radar with a target like reflectivity field.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -602,7 +609,7 @@
     <span class="k">return</span> <span class="n">radar</span></div>
 
 
-<div class="viewcode-block" id="make_target_rhi_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_target_rhi_radar.html#pyart.testing.make_target_rhi_radar">[docs]</a><span class="k">def</span> <span class="nf">make_target_rhi_radar</span><span class="p">():</span>
+<div class="viewcode-block" id="make_target_rhi_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_target_rhi_radar.html#pyart.testing.make_target_rhi_radar">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">make_target_rhi_radar</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return an RHI radar with a target like reflectivity field.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -619,7 +626,7 @@
     <span class="k">return</span> <span class="n">radar</span></div>
 
 
-<div class="viewcode-block" id="make_velocity_aliased_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_velocity_aliased_radar.html#pyart.testing.make_velocity_aliased_radar">[docs]</a><span class="k">def</span> <span class="nf">make_velocity_aliased_radar</span><span class="p">(</span><span class="n">alias</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="make_velocity_aliased_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_velocity_aliased_radar.html#pyart.testing.make_velocity_aliased_radar">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">make_velocity_aliased_radar</span><span class="p">(</span><span class="n">alias</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return a PPI radar with a target like reflectivity field.</span>
 
@@ -656,7 +663,7 @@
     <span class="k">return</span> <span class="n">radar</span></div>
 
 
-<div class="viewcode-block" id="make_velocity_aliased_rhi_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_velocity_aliased_rhi_radar.html#pyart.testing.make_velocity_aliased_rhi_radar">[docs]</a><span class="k">def</span> <span class="nf">make_velocity_aliased_rhi_radar</span><span class="p">(</span><span class="n">alias</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="make_velocity_aliased_rhi_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_velocity_aliased_rhi_radar.html#pyart.testing.make_velocity_aliased_rhi_radar">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">make_velocity_aliased_rhi_radar</span><span class="p">(</span><span class="n">alias</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return a RHI radar with a target like reflectivity field.</span>
 
@@ -693,7 +700,7 @@
     <span class="k">return</span> <span class="n">radar</span></div>
 
 
-<div class="viewcode-block" id="make_single_ray_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_single_ray_radar.html#pyart.testing.make_single_ray_radar">[docs]</a><span class="k">def</span> <span class="nf">make_single_ray_radar</span><span class="p">():</span>
+<div class="viewcode-block" id="make_single_ray_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_single_ray_radar.html#pyart.testing.make_single_ray_radar">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">make_single_ray_radar</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return a PPI radar with a single ray taken from a ARM C-SAPR Radar.</span>
 
@@ -712,7 +719,7 @@
     <span class="k">return</span> <span class="n">radar</span></div>
 
 
-<div class="viewcode-block" id="make_empty_grid"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_empty_grid.html#pyart.testing.make_empty_grid">[docs]</a><span class="k">def</span> <span class="nf">make_empty_grid</span><span class="p">(</span><span class="n">grid_shape</span><span class="p">,</span> <span class="n">grid_limits</span><span class="p">):</span>
+<div class="viewcode-block" id="make_empty_grid"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_empty_grid.html#pyart.testing.make_empty_grid">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">make_empty_grid</span><span class="p">(</span><span class="n">grid_shape</span><span class="p">,</span> <span class="n">grid_limits</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Make an empty grid object without any fields or metadata.</span>
 
@@ -793,7 +800,7 @@
     <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="make_target_grid"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_target_grid.html#pyart.testing.make_target_grid">[docs]</a><span class="k">def</span> <span class="nf">make_target_grid</span><span class="p">():</span>
+<div class="viewcode-block" id="make_target_grid"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_target_grid.html#pyart.testing.make_target_grid">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">make_target_grid</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Make a sample Grid with a rectangular target.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -811,7 +818,7 @@
     <span class="k">return</span> <span class="n">grid</span></div>
 
 
-<div class="viewcode-block" id="make_storm_grid"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_storm_grid.html#pyart.testing.make_storm_grid">[docs]</a><span class="k">def</span> <span class="nf">make_storm_grid</span><span class="p">():</span>
+<div class="viewcode-block" id="make_storm_grid"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_storm_grid.html#pyart.testing.make_storm_grid">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">make_storm_grid</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Make a sample Grid with a rectangular storm target.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -830,7 +837,7 @@
     <span class="k">return</span> <span class="n">grid</span></div>
 
 
-<div class="viewcode-block" id="make_normal_storm"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_normal_storm.html#pyart.testing.make_normal_storm">[docs]</a><span class="k">def</span> <span class="nf">make_normal_storm</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+<div class="viewcode-block" id="make_normal_storm"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_normal_storm.html#pyart.testing.make_normal_storm">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">make_normal_storm</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Make a sample Grid with a gaussian storm target.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -848,7 +855,7 @@
     <span class="k">return</span> <span class="n">test_grid</span></div>
 
 
-<div class="viewcode-block" id="make_gaussian_storm_grid"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_gaussian_storm_grid.html#pyart.testing.make_gaussian_storm_grid">[docs]</a><span class="k">def</span> <span class="nf">make_gaussian_storm_grid</span><span class="p">(</span>
+<div class="viewcode-block" id="make_gaussian_storm_grid"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_gaussian_storm_grid.html#pyart.testing.make_gaussian_storm_grid">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">make_gaussian_storm_grid</span><span class="p">(</span>
     <span class="n">min_value</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">grid_len</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">masked_boundary</span><span class="o">=</span><span class="mi">3</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -911,7 +918,7 @@
     <span class="k">return</span> <span class="n">grid</span></div>
 
 
-<div class="viewcode-block" id="make_empty_spectra_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_empty_spectra_radar.html#pyart.testing.make_empty_spectra_radar">[docs]</a><span class="k">def</span> <span class="nf">make_empty_spectra_radar</span><span class="p">(</span><span class="n">nrays</span><span class="p">,</span> <span class="n">ngates</span><span class="p">,</span> <span class="n">npulses_max</span><span class="p">):</span>
+<div class="viewcode-block" id="make_empty_spectra_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_empty_spectra_radar.html#pyart.testing.make_empty_spectra_radar">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">make_empty_spectra_radar</span><span class="p">(</span><span class="n">nrays</span><span class="p">,</span> <span class="n">ngates</span><span class="p">,</span> <span class="n">npulses_max</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return a Spectra Radar object.</span>
 
@@ -1011,7 +1018,7 @@
     <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="make_target_spectra_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_target_spectra_radar.html#pyart.testing.make_target_spectra_radar">[docs]</a><span class="k">def</span> <span class="nf">make_target_spectra_radar</span><span class="p">():</span>
+<div class="viewcode-block" id="make_target_spectra_radar"><a class="viewcode-back" href="../../../API/generated/pyart.testing.make_target_spectra_radar.html#pyart.testing.make_target_spectra_radar">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">make_target_spectra_radar</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return a spectra radar with a target like spectra field.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1059,8 +1066,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1093,7 +1100,8 @@
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>
