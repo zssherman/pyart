@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:16.973** total execution time for 3 files **from examples/xradar**:
+**00:17.099** total execution time for 3 files **from examples/xradar**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_examples_xradar_plot_dealias_xradar.py` (``plot_dealias_xradar.py``)
-     - 00:09.360
+     - 00:09.446
      - 0.0
    * - :ref:`sphx_glr_examples_xradar_plot_grid_xradar.py` (``plot_grid_xradar.py``)
-     - 00:04.184
+     - 00:04.203
      - 0.0
    * - :ref:`sphx_glr_examples_xradar_plot_xradar.py` (``plot_xradar.py``)
-     - 00:03.429
+     - 00:03.450
      - 0.0
