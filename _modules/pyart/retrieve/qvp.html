@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
@@ -51,6 +51,7 @@
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/sg-tags.js?v=d80f6fa4"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-JJEG3CV376"></script>
     <script>
@@ -503,7 +504,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="kn">import</span> <span class="n">warn</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">netCDF4</span><span class="w"> </span><span class="kn">import</span> <span class="n">num2date</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cftime</span><span class="w"> </span><span class="kn">import</span> <span class="n">num2date</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">interp1d</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">..core.transforms</span><span class="w"> </span><span class="kn">import</span> <span class="n">antenna_to_cartesian</span>
@@ -2255,7 +2256,13 @@
 <span class="sd">        The updated QVP object</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">start_time</span> <span class="o">=</span> <span class="n">num2date</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">qvp</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">],</span> <span class="n">qvp</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;calendar&quot;</span><span class="p">])</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">num2date</span><span class="p">(</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="n">qvp</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">],</span>
+        <span class="n">qvp</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;calendar&quot;</span><span class="p">],</span>
+        <span class="n">only_use_cftime_datetimes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">only_use_python_datetimes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
     <span class="n">qvp</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
         <span class="n">qvp</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="p">(</span><span class="n">ref_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
     <span class="p">)</span>
@@ -2295,7 +2302,13 @@
 <span class="sd">        The updated along coordinate object</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">start_time</span> <span class="o">=</span> <span class="n">num2date</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">acoord</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">],</span> <span class="n">acoord</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;calendar&quot;</span><span class="p">])</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">num2date</span><span class="p">(</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="n">acoord</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">],</span>
+        <span class="n">acoord</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;calendar&quot;</span><span class="p">],</span>
+        <span class="n">only_use_cftime_datetimes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">only_use_python_datetimes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
     <span class="n">acoord</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
         <span class="n">acoord</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span> <span class="p">(</span><span class="n">ref_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
     <span class="p">)</span>
