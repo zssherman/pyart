@@ -15,7 +15,7 @@ ensuring that:
 
 This policy applies regardless of whether the code was written by hand, with AI
 assistance, or generated entirely by an AI tool. It is adapted from the
-[xarray AI Usage Policy](https://github.com/pydata/xarray/blob/main/doc/contribute/ai-policy.md) and [xradar AI Usage Policy]()
+[xarray AI Usage Policy](https://github.com/pydata/xarray/blob/main/doc/contribute/ai-policy.md) and [Py-ART AI Usage Policy]()
 and aligns with similar efforts across the scientific Python ecosystem, with
 pyart-specific additions for CI, packaging, and dependency changes.
 
@@ -111,7 +111,7 @@ limited to:
 we ask that contributors **open an issue first** to discuss the motivation and
 scope before submitting a PR, and explicitly note whether AI tools were used in
 the proposed change. AI tools are not a reliable guide to the security,
-licensing, or maintenance implications of adding a new dependency, and xradar —
+licensing, or maintenance implications of adding a new dependency, and Py-ART —
 like other scientific open-source projects — is a potential target for
 supply-chain-style contributions. Maintainers may ask that AI not be used for
 these changes, or that an issue-first discussion happen before any code is
