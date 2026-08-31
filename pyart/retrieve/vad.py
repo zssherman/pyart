@@ -3,10 +3,14 @@ Retrieval of VADs from a radar object.
 
 """
 
+import logging
+
 import numpy as np
 
 from ..config import get_field_name
 from ..core import HorizontalWindProfile
+
+logger = logging.getLogger(__name__)
 
 
 def vad_michelson(radar, vel_field=None, z_want=None, gatefilter=None):
@@ -24,10 +28,10 @@ def vad_michelson(radar, vel_field=None, z_want=None, gatefilter=None):
         Velocity field to use for VAD calculation.
     z_want : array, optional
         Heights for where to sample vads from.
-        None will result in np.linespace(0, 10000, 100).
+        None will result in np.linspace(0, 10000, 100).
     gatefilter : GateFilter, optional
         A GateFilter indicating radar gates that should be excluded
-        from the import vad calculation.
+        from the VAD calculation.
 
     Returns
     -------
@@ -53,7 +57,7 @@ def vad_michelson(radar, vel_field=None, z_want=None, gatefilter=None):
 
     # Setting parameters
     if z_want is None:
-        z_want = np.linspace(0, 1000, 100)
+        z_want = np.linspace(0, 10000, 100)
 
     # Parse field parameters
     if vel_field is None:
@@ -71,9 +75,7 @@ def vad_michelson(radar, vel_field=None, z_want=None, gatefilter=None):
     # Getting radar sweep index values
     for i in range(len(radar.sweep_start_ray_index["data"])):
         index_start = radar.sweep_start_ray_index["data"][i]
-        index_end = radar.sweep_end_ray_index["data"][i]
-        if not (index_end - index_start) % 2 == 0:
-            index_end = index_end - 1
+        index_end = radar.sweep_end_ray_index["data"][i] + 1
 
         used_velocities = velocities[index_start:index_end]
         azimuth = radar.azimuth["data"][index_start:index_end]
@@ -82,9 +84,9 @@ def vad_michelson(radar, vel_field=None, z_want=None, gatefilter=None):
         # Calculating speed and angle
         speed, angle = _vad_calculation_m(used_velocities, azimuth, elevation)
 
-        print("max height", z_gate_data[index_start, :].max(), "meters")
+        logger.debug("max height: %f meters", z_gate_data[index_start, :].max())
 
-        # Filling empty arrays with data
+        # Filling arrays with data
         speeds.append(speed)
         angles.append(angle)
         heights.append(z_gate_data[index_start, :])
@@ -107,90 +109,113 @@ def vad_michelson(radar, vel_field=None, z_want=None, gatefilter=None):
 
 
 def _vad_calculation_m(velocity_field, azimuth, elevation):
-    """Calculates VAD for a scan, returns speed and angle
-    outdic = vad_algorithm(velocity_field, azimuth, elevation)
-    velocity_field is a 2D array, azimuth is a 1D array,
-    elevation is a number. All in degrees, m outdic contains
-    speed and angle."""
+    """
+    Calculates VAD for a single sweep using least-squares fitting.
+    Uses a vectorized solve when no data are missing, and falls back
+    to a per-bin solve when masked/NaN values are present.
 
-    # Creating array with radar velocity data
+    Parameters
+    ----------
+    velocity_field : 2D masked array, shape (nrays, nbins)
+        Radial velocity data for one sweep.
+    azimuth : 1D array, shape (nrays,)
+        Azimuth angles in degrees for each ray.
+    elevation : float
+        Elevation angle of the sweep in degrees.
+
+    Returns
+    -------
+    speed : 1D array, shape (nbins,)
+        Horizontal wind speed at each range gate.
+    angle : 1D array, shape (nbins,)
+        Wind direction (radians, mathematical convention) at each range gate.
+    """
     nrays, nbins = velocity_field.shape
-    nrays2 = nrays // 2
-    velocity_count = np.ma.empty((nrays2, nbins, 2))
-    velocity_count[:, :, 0] = velocity_field[0:nrays2, :]
-    velocity_count[:, :, 1] = velocity_field[nrays2:, :]
+    cos_el = np.cos(np.deg2rad(elevation))
 
-    # Converting from degress to radians
-    sinaz = np.sin(np.deg2rad(azimuth))
-    cosaz = np.cos(np.deg2rad(azimuth))
+    vel = np.ma.filled(np.ma.asarray(velocity_field), fill_value=np.nan)
 
-    # Masking array and testing for nan values
-    sumv = np.ma.sum(velocity_count, 2)
-    vals = np.isnan(sumv)
-    vals2 = np.vstack((vals, vals))
-
-    # Summing non-nan data and creating new array with summed data
-    count = np.sum(~np.isnan(sumv), 0)
-    count = np.float64(count)
-    u_m = np.array([np.nansum(sumv, 0) // (2 * count)])
-
-    # Creating 0 value arrays
-    cminusu_mcos = np.zeros((nrays, nbins))
-    cminusu_msin = np.zeros((nrays, nbins))
-    sincos = np.zeros((nrays, nbins))
-    sin2 = np.zeros((nrays, nbins))
-    cos2 = np.zeros((nrays, nbins))
-
-    # Summing all sin and cos and setting select entires to nan
-    for i in range(nbins):
-        cminusu_mcos[:, i] = cosaz * (velocity_field[:, i] - u_m[:, i])
-        cminusu_msin[:, i] = sinaz * (velocity_field[:, i] - u_m[:, i])
-        sincos[:, i] = sinaz * cosaz
-        sin2[:, i] = sinaz**2
-        cos2[:, i] = cosaz**2
-
-    cminusu_mcos[vals2] = np.nan
-    cminusu_msin[vals2] = np.nan
-    sincos[vals2] = np.nan
-    sin2[vals2] = np.nan
-    cos2[vals2] = np.nan
-    sumcminu_mcos = np.nansum(cminusu_mcos, 0)
-    sumcminu_msin = np.nansum(cminusu_msin, 0)
-    sumsincos = np.nansum(sincos, 0)
-    sumsin2 = np.nansum(sin2, 0)
-    sumcos2 = np.nansum(cos2, 0)
-
-    # Calculating speed and angle values
-    b_value = (sumcminu_mcos - (sumsincos * sumcminu_msin / sumsin2)) / (
-        sumcos2 - (sumsincos**2) / sumsin2
+    az_rad = np.deg2rad(azimuth)
+    A = np.column_stack(
+        [
+            np.ones(nrays),
+            np.sin(az_rad),
+            np.cos(az_rad),
+        ]
     )
-    a_value = (sumcminu_msin - b_value * sumsincos) / sumsin2
-    speed = np.sqrt(a_value**2 + b_value**2) / np.cos(np.deg2rad(elevation))
-    angle = np.arctan2(a_value, b_value)
+
+    has_missing = np.any(np.isnan(vel))
+
+    if not has_missing:
+        # Vectorized: solve all bins at once
+        # A @ coeffs = vel  =>  coeffs = (A^T A)^-1 A^T vel
+        # lstsq with a matrix RHS solves all columns simultaneously
+        coeffs, _, _, _ = np.linalg.lstsq(A, vel, rcond=None)
+        # coeffs shape: (3, nbins)
+        a_values = coeffs[1, :]
+        b_values = coeffs[2, :]
+        speed = np.sqrt(a_values**2 + b_values**2) / cos_el
+        angle = np.arctan2(a_values, b_values)
+    else:
+        # Per-bin fallback for missing data
+        speed = np.full(nbins, np.nan)
+        angle = np.full(nbins, np.nan)
+
+        for j in range(nbins):
+            vr = vel[:, j]
+            valid = ~np.isnan(vr)
+
+            if np.sum(valid) < 3:
+                continue
+
+            coeffs, _, _, _ = np.linalg.lstsq(A[valid, :], vr[valid], rcond=None)
+            a_val = coeffs[1]
+            b_val = coeffs[2]
+
+            speed[j] = np.sqrt(a_val**2 + b_val**2) / cos_el
+            angle[j] = np.arctan2(a_val, b_val)
+
     return speed, angle
 
 
 def _interval_mean(data, current_z, wanted_z):
-    """Find the mean of data indexed by current_z
-    at wanted_z on intervals wanted_z+/- delta
-    wanted_z."""
+    """
+    Find the mean of *data* (indexed by *current_z*) inside height bins
+    centred on each element of *wanted_z* with width equal to the spacing
+    of *wanted_z*.
+
+    Parameters
+    ----------
+    data : 1D array
+        Data values sorted by height.
+    current_z : 1D array
+        Heights corresponding to *data* (must be sorted).
+    wanted_z : 1D array
+        Target height levels (assumed uniformly spaced).
+
+    Returns
+    -------
+    mean_values : 1D array
+        Mean of *data* in each height bin. NaN where no data exist.
+    """
     delta = wanted_z[1] - wanted_z[0]
-    pos_lower = [
-        np.argsort((current_z - (wanted_z[i] - delta / 2.0)) ** 2)[0]
-        for i in range(len(wanted_z))
-    ]
-    pos_upper = [
-        np.argsort((current_z - (wanted_z[i] + delta / 2.0)) ** 2)[0]
-        for i in range(len(wanted_z))
-    ]
-    mean_values = np.array(
-        [(data[pos_lower[i] : pos_upper[i]]).mean() for i in range(len(pos_upper))]
-    )
+    mean_values = np.full(len(wanted_z), np.nan)
+
+    for i, z in enumerate(wanted_z):
+        lower = z - delta / 2.0
+        upper = z + delta / 2.0
+        mask = (current_z >= lower) & (current_z < upper)
+        if np.any(mask):
+            mean_values[i] = np.nanmean(data[mask])
+
     return mean_values
 
 
 def _sd_to_uv(speed, direction):
-    """Takes speed and direction to create u_mean and v_mean."""
+    """
+    Convert speed and direction (radians, mathematical convention)
+    to u and v wind components.
+    """
     return (np.sin(direction) * speed), (np.cos(direction) * speed)
 
 
