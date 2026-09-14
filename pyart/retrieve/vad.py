@@ -36,16 +36,16 @@ def vad_michelson(radar, vel_field=None, z_want=None, gatefilter=None):
     Returns
     -------
     vad : HorizontalWindProfile
-        A velocity azimuth display object containing height, speed, direction,
-        u_wind, v_wind from a radar object.
+        A velocity azimuth display object containing height, speed,
+        direction, u_wind, v_wind from a radar object.
 
     References
     ----------
-    Michelson, D. B., Andersson, T., Koistinen, J., Collier, C. G., Riedl, J.,
-    Szturc, J., Gjertsen, U., Nielsen, A. and Overgaard, S. (2000) BALTEX Radar
-    Data Centre Products and their Methodologies. In SMHI Reports. Meteorology
-    and Climatology. Swedish Meteorological and Hydrological Institute,
-    Norrkoping.
+    Michelson, D. B., Andersson, T., Koistinen, J., Collier, C. G.,
+    Riedl, J., Szturc, J., Gjertsen, U., Nielsen, A. and Overgaard, S.
+    (2000) BALTEX Radar Data Centre Products and their Methodologies.
+    In SMHI Reports. Meteorology and Climatology. Swedish Meteorological
+    and Hydrological Institute, Norrkoping.
 
     """
     speeds = []
@@ -72,8 +72,8 @@ def vad_michelson(radar, vel_field=None, z_want=None, gatefilter=None):
     else:
         velocities = radar.fields[vel_field]["data"]
 
-    # Getting radar sweep index values
-    for i in range(len(radar.sweep_start_ray_index["data"])):
+    # Process each sweep
+    for i in range(radar.nsweeps):
         index_start = radar.sweep_start_ray_index["data"][i]
         index_end = radar.sweep_end_ray_index["data"][i] + 1
 
@@ -82,16 +82,20 @@ def vad_michelson(radar, vel_field=None, z_want=None, gatefilter=None):
         elevation = radar.fixed_angle["data"][i]
 
         # Calculating speed and angle
-        speed, angle = _vad_calculation_m(used_velocities, azimuth, elevation)
+        speed, angle = _vad_calculation(used_velocities, azimuth, elevation)
 
-        logger.debug("max height: %f meters", z_gate_data[index_start, :].max())
+        logger.debug(
+            "Sweep %d, max height: %f meters",
+            i,
+            z_gate_data[index_start, :].max(),
+        )
 
         # Filling arrays with data
         speeds.append(speed)
         angles.append(angle)
         heights.append(z_gate_data[index_start, :])
 
-    # Combining arrays and sorting
+    # Combining arrays and sorting by height
     speed_array = np.concatenate(speeds)
     angle_array = np.concatenate(angles)
     height_array = np.concatenate(heights)
@@ -108,9 +112,20 @@ def vad_michelson(radar, vel_field=None, z_want=None, gatefilter=None):
     return vad
 
 
-def _vad_calculation_m(velocity_field, azimuth, elevation):
+def _vad_calculation(velocity_field, azimuth, elevation):
     """
     Calculates VAD for a single sweep using least-squares fitting.
+
+    Fits the radial velocity model:
+
+        V_r = u_m + a * sin(az) + b * cos(az)
+
+    using np.linalg.lstsq at each range gate, then recovers the
+    horizontal wind speed and direction:
+
+        speed = sqrt(a^2 + b^2) / cos(elevation)
+        angle = arctan2(a, b)
+
     Uses a vectorized solve when no data are missing, and falls back
     to a per-bin solve when masked/NaN values are present.
 
@@ -128,13 +143,16 @@ def _vad_calculation_m(velocity_field, azimuth, elevation):
     speed : 1D array, shape (nbins,)
         Horizontal wind speed at each range gate.
     angle : 1D array, shape (nbins,)
-        Wind direction (radians, mathematical convention) at each range gate.
+        Wind direction (radians, mathematical convention) at each
+        range gate.
     """
     nrays, nbins = velocity_field.shape
     cos_el = np.cos(np.deg2rad(elevation))
 
+    # Convert masked array to NaN-filled regular array
     vel = np.ma.filled(np.ma.asarray(velocity_field), fill_value=np.nan)
 
+    # Design matrix: [1, sin(az), cos(az)]
     az_rad = np.deg2rad(azimuth)
     A = np.column_stack(
         [
@@ -147,8 +165,7 @@ def _vad_calculation_m(velocity_field, azimuth, elevation):
     has_missing = np.any(np.isnan(vel))
 
     if not has_missing:
-        # Vectorized: solve all bins at once
-        # A @ coeffs = vel  =>  coeffs = (A^T A)^-1 A^T vel
+        # Fast path: solve all bins at once
         # lstsq with a matrix RHS solves all columns simultaneously
         coeffs, _, _, _ = np.linalg.lstsq(A, vel, rcond=None)
         # coeffs shape: (3, nbins)
@@ -165,6 +182,7 @@ def _vad_calculation_m(velocity_field, azimuth, elevation):
             vr = vel[:, j]
             valid = ~np.isnan(vr)
 
+            # Need at least 3 valid rays to solve for 3 unknowns
             if np.sum(valid) < 3:
                 continue
 
@@ -180,9 +198,9 @@ def _vad_calculation_m(velocity_field, azimuth, elevation):
 
 def _interval_mean(data, current_z, wanted_z):
     """
-    Find the mean of *data* (indexed by *current_z*) inside height bins
-    centred on each element of *wanted_z* with width equal to the spacing
-    of *wanted_z*.
+    Find the mean of *data* (indexed by *current_z*) inside height
+    bins centred on each element of *wanted_z* with width equal to
+    the spacing of *wanted_z*.
 
     Parameters
     ----------
@@ -206,7 +224,10 @@ def _interval_mean(data, current_z, wanted_z):
         upper = z + delta / 2.0
         mask = (current_z >= lower) & (current_z < upper)
         if np.any(mask):
-            mean_values[i] = np.nanmean(data[mask])
+            vals = data[mask]
+            valid = ~np.isnan(vals)
+            if np.any(valid):
+                mean_values[i] = np.nanmean(vals)
 
     return mean_values
 
@@ -215,6 +236,20 @@ def _sd_to_uv(speed, direction):
     """
     Convert speed and direction (radians, mathematical convention)
     to u and v wind components.
+
+    Parameters
+    ----------
+    speed : array
+        Wind speed.
+    direction : array
+        Wind direction in radians (mathematical convention).
+
+    Returns
+    -------
+    u : array
+        U-component of wind.
+    v : array
+        V-component of wind.
     """
     return (np.sin(direction) * speed), (np.cos(direction) * speed)
 
